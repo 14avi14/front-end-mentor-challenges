@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+/* || GENERAL STYLES */
+
+:root {
+	--BORDER-RADIUS: 15px;
+
+	--BODY-BG-COLOR: hsl(212, 45%, 89%);
+	--H1-COLOR: hsl(218, 44%, 22%);
+	--P-COLOR: hsl(216, 15%, 48%);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font: 1rem outfit, sans-serif;
+	background-color: var(--BODY-BG-COLOR);
+	height: 100vh;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-flow: column nowrap;
+}
+
+main {
+	width: 20em;
+	height: 30em;
+
+	background-color: white;
+	border-radius: var(--BORDER-RADIUS);
+	box-shadow: 0px 0px 5px #bbb;
+
+	
+
+}
+
+
+
+main img {
+	display: block;
+	width: 280px;
+	height: auto;
+	border-radius: var(--BORDER-RADIUS);
+
+	margin-top: 1rem;
+	margin-inline: auto;
+
+}
+
+main h1, p {
+	text-align: center;
+	margin: 1rem;
+}
+
+main h1 {
+	color: var(--H1-COLOR);
+	font-size: 1.5em;
+}
+
+main p {
+	color: var(--P-COLOR);
+}
+
