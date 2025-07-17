@@ -1,0 +1,166 @@
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
+ /* GENERAL STYLES */
+
+ :root {
+ 	--BORDER-RADIUS: 15px;
+ }
+
+ * {
+ 	margin: 0;
+ 	padding: 0;
+ 	box-sizing: border-box;
+ }
+
+body {
+	font-size: 1rem;
+
+	width: 100vw;
+	height: 100vh;
+
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+
+	background-color: hsl(30, 38%, 92%);
+
+}
+
+
+main {
+	display: grid;
+
+	border-radius: var(--BORDER-RADIUS);
+	background-color: hsl(0, 0%, 100%);
+
+	width: min(calc(100% - 1rem), 38rem);
+	min-height: 30rem;
+}
+
+/* || ADJUSTING IMAGE */
+
+picture img{
+	width: 100%;
+	height: 12rem;
+	object-fit: cover;
+	object-position: center;
+	border-radius: var(--BORDER-RADIUS) var(--BORDER-RADIUS) 0 0;
+
+}
+
+
+/* || TEXT STYLES */
+.description-sec {
+	padding: 1rem;
+	display: grid;
+}
+
+h2, p {
+	font-family: "Montserrat", sans-serif;
+	line-height: 1.25rem;
+	font-weight: 500;
+	font-size: 0.8rem;
+	color: hsl(228, 12%, 48%);
+}
+
+
+h2 {
+	text-transform: uppercase;
+	letter-spacing: 0.3rem;
+	
+	font-size: 0.8rem;
+}
+
+h1, h3 {
+	font-family: "Fraunces", serif;
+	font-weight: 700;
+}
+
+h1 {
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+
+h3 {
+	color: hsl(158, 36%, 37%);
+}
+
+
+.price {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+}
+
+.price {
+	font-size: 1.5rem;
+}
+
+
+/* || BUTTONS */
+
+button {
+	display: block;
+	border: none;
+	border-radius: var(--BORDER-RADIUS);
+	background-color: hsl(158, 36%, 37%);
+	color: white;
+	width: 16rem;
+	height: 3rem;
+	margin-inline: auto;
+
+	font-family: "Montserrat", sans-serif;
+
+	position: relative;
+}
+
+button::before {
+	position: absolute;
+
+	left: 25%;
+	top: 53%;
+
+	transform: translate(0, -50%);
+	
+	content: url("../images/icon-cart.svg");
+}
+
+button:hover {
+	transform: translateY(-2px);
+}
+
+button:active {
+	transform: scale(0.98);
+}
+
+
+/* || MEDIA QUERIES */
+
+@media (min-width: 48rem) {
+	main {
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: auto;
+	}
+
+	.description-sec {
+		padding: 1.75rem;
+	}
+
+	h1 {
+		font-size: 2rem	;
+	}
+
+	.price {
+		font-size: 2rem;
+	}
+
+
+	picture img {
+		height: 100%;
+		border-radius: var(--BORDER-RADIUS) 0 0 var(--BORDER-RADIUS);
+	}
+
+}
