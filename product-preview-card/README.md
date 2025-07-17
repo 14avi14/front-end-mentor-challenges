@@ -13,5 +13,5 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://14avi14.github.io/front-end-mentor-challenges/product-preview-card/)
+- Live Site URL: [Live site URL](https://14avi14.github.io/front-end-mentor-challenges/product-preview-card/)
 
