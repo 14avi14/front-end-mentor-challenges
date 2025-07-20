@@ -23,7 +23,7 @@
 	--font-small-size: clamp(0.8rem, 3vw, 1rem); /* 12.8px ~ 16px*/
 
 	/* WIDTHs/HEIGHTs */
-	--card-width-s: min(46rem, calc(100% - 2rem)); /* ~736px max */
+	--card-width-s: min(56rem, calc(100% - 2rem)); /* ~736px max */
 	--card-height-s: 70%;
 	--main-img-height-s: 11.25rem; /* 180px */
 
@@ -197,7 +197,7 @@ main figure img {
 /* Update look of share button onactive */
 
 input[type="checkbox"]:checked + label {
-	background-color: var(--grayish-blue);
+	background-color: var(--desaturated-dark-blue);
 }
 
 input[type="checkbox"]:checked + label img {
