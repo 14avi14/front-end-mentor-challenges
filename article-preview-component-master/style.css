@@ -1,0 +1,353 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+/* || CSS RESET */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* || GENERAL STYLES */
+:root {
+
+	/* COLORS */
+	--very-dark-grayish-blue: hsl(217, 19%, 35%);
+	--desaturated-dark-blue: hsl(214, 17%, 51%);
+	--grayish-blue: hsl(212, 23%, 69%);
+	--light-grayish-blue: hsl(210, 46%, 95%);
+
+
+	/* FONT */
+	--font-base: "Manrope", sans-serif;
+	--font-h1-size: clamp(0.95rem, 4vw, 1.25rem); /* 15.2px ~ 20px*/
+	--font-small-size: clamp(0.8rem, 3vw, 1rem); /* 12.8px ~ 16px*/
+
+	/* WIDTHs/HEIGHTs */
+	--card-width-s: min(46rem, calc(100% - 2rem)); /* ~736px max */
+	--card-height-s: 70%;
+	--main-img-height-s: 11.25rem; /* 180px */
+
+	--profile-pic-width: clamp(2.5rem, 12.5vw, 3.2rem); /* 40px ~ 60px*/
+
+	--share-btn-width: clamp(2rem, 10vw, 3rem); /* 32px ~ 52px*/
+
+	--social-nav-width: 100%;
+	--social-nav-height: calc(var(--profile-pic-width) + var(--padding-small-publish-sec) * 2);
+
+	/* PADDINGS/MARGINS */
+	--padding-small-text-sec: 1.5rem;
+	--padding-small-publish-sec: 1rem;
+	--padding-big-publish-sec: 1.5rem;
+	--list-item-gap: 1rem;
+	--paragraph-gap: 1rem;
+
+	--box-shadow-main: 1rem 1rem 2rem hsla(212, 23%, 69%, 0.25);
+
+
+	--border-radius: 0.6rem;
+
+
+}
+
+
+body {
+	font-family: var(--font-base);
+	background-color: var(--light-grayish-blue);
+
+	height: 100vh;
+	width: 100vw;
+
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+
+}
+
+ul {
+	list-style: none;
+}
+
+/* || CARD */
+
+main {
+	margin: 1rem;
+	width: var(--card-width-s);
+	height: var(--card-height-s); 
+
+	background-color: white;
+	border-radius: var(--border-radius);
+
+	box-shadow: var(--box-shadow-main);
+
+	font-size: var(--font-s);
+
+	display: grid;
+	grid-template: 
+		"img" 1fr
+		"txt" 1fr
+		"txt" 1fr
+		"foot" 1fr / 1fr;
+
+	
+
+	position: relative; /* For the nav bar(positioned absolute) */
+}
+
+
+/* || MAIN IMAGE */
+
+main figure {
+	grid-area: img;
+	align-self: center;
+	height: var(--main-img-height-s);
+	overflow: clip; /* Just learned */
+}
+
+main figure img {
+	width: 100%;
+	height: auto;
+
+	border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+/* || TEXT */
+
+.text-section {
+	grid-area: txt;
+
+	height: 100%;
+	display: flex;
+	flex-flow: column nowrap;
+	gap: var(--paragraph-gap);
+	padding: var(--padding-small-text-sec);
+}
+
+.text-section h1 {
+	color: var(--very-dark-grayish-blue);
+	font-weight: 700;
+	font-size: var(--font-h1-size);
+}
+
+.text-section p {
+	color: var(--desaturated-dark-blue);
+	font-weight: 500;
+	font-size: var(--font-small-size);
+}
+
+.publish-info {
+	grid-area: foot;
+	align-self: end;
+
+	display: grid;
+	grid-template: 
+		"prof-pic name name share-btn" 1fr
+		"prof-pic date date share-btn" 1fr / var(--profile-pic-width) auto auto var(--share-btn-width);
+
+	column-gap: 1rem;
+	align-items: center;
+
+	padding-bottom: var(--padding-small-publish-sec);
+	padding-inline: var(--padding-small-text-sec);
+}
+
+
+.profile-pic {
+	grid-area: prof-pic;
+
+	border-radius: 50%;
+	width: var(--profile-pic-width);
+	height: auto;
+}
+
+.publish-info h2 {
+	grid-area: name;
+	align-self: end;
+	font-weight: 700;
+	font-size: var(--font-small-size);
+	color: var(--very-dark-grayish-blue);
+}
+
+.publish-info time {
+	grid-area: date;
+	align-self: start;
+	font-weight: 500;
+	font-size: var(--font-small-size);
+	color: var(--grayish-blue);
+}
+
+.publish-info input[type="checkbox"] {
+	display: none;
+}
+
+.publish-info label{
+	grid-area: share-btn;
+	width: var(--share-btn-width);
+	height: var(--share-btn-width);
+	border-radius: 50%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	background-color: var(--light-grayish-blue);
+	z-index: 1; /* Make button still show up even when socials nav bar appears */
+}
+
+/* Update look of share button onactive */
+
+input[type="checkbox"]:checked + label {
+	background-color: var(--grayish-blue);
+}
+
+input[type="checkbox"]:checked + label img {
+	filter: brightness(5); /* Make share arrow look white */
+}
+
+
+
+.socials {
+	position: absolute;
+
+	left: 0;
+	bottom: 0;
+
+	width: var(--social-nav-width);
+	height: var(--social-nav-height);
+	border-radius: 0 0 var(--border-radius) var(--border-radius);
+
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: var(--list-item-gap);
+
+
+	padding-inline: var(--padding-small-text-sec);
+
+
+	color: var(--light-grayish-blue);
+	background-color: var(--very-dark-grayish-blue);
+
+}
+
+.socials h3 {
+	font-weight: 500;
+
+}
+
+.socials ul {
+	display: flex;
+	align-items: center;
+	gap: var(--list-item-gap);
+}
+
+
+
+
+
+/* || MEDIA QUERIES */
+
+@media (min-width: 48em) {  /* 768px */
+
+	:root {
+		--padding-small-text-sec: 2.5rem;
+		--padding-small-publish-sec: 1.5rem;
+		--main-img-height-s: 22rem;
+		--card-height-s: var(--main-img-height-s);
+
+		--social-nav-width: 18rem;/* ~288px  */
+		--social-nav-height: 3.5rem;
+		--social-nav-y-pos: calc(var(--profile-pic-width) / 2 + var(--padding-small-publish-sec));
+		--social-nav-right-offset: 7rem; /* 112px */
+
+		--triangle-tab-width: 2.5rem;
+		--triangle-tab-length: 1rem;
+	}
+	main {
+		grid-template: 
+			"img txt" 3fr
+			"img foot" 1fr / 1fr 1.75fr;
+
+		height: var(--card-height-s);
+	}
+
+	main figure {
+		overflow-x: hidden;
+	}
+
+	main figure img {
+		height: var(--main-img-height-s);
+		width: auto;
+		object-fit: cover;
+		border-radius: var(--border-radius) 0 0 var(--border-radius);
+	}
+
+
+	.publish-info label img {
+		transform: scale(1.3); /* Make share arrow appear bigger */
+	}
+
+	.socials {
+		border-radius: var(--border-radius); /* Make all corners round for nav bar */
+		justify-content: space-evenly; /* evenly space since share button is not in nav bar */
+
+		left: auto;
+		right: var(--social-nav-right-offset); /* Put socials nav on right */
+		bottom: var(--social-nav-y-pos);
+		transform: translateY(50%);
+	}
+
+	.triangle {
+		width: 0;
+		height: 0;
+		position: relative;
+	}
+
+	.triangle:after {
+		content: " ";
+		position: absolute;
+		width: 0;
+		height: 0;
+
+		top: calc(-1* var(--triangle-tab-width) / 2);
+		right: calc(0rem - var(--padding-small-text-sec) - var(--triangle-tab-length)); /* Make it appear on the right */
+
+
+		/* Some cool border tricks to make the triangle */
+		border-top: calc(var(--triangle-tab-width) / 2) solid transparent; 
+		border-bottom: calc(var(--triangle-tab-width) / 2) solid transparent;
+		border-left: var(--triangle-tab-length) solid var(--very-dark-grayish-blue);
+	}
+
+}
+
+
+@media (min-width: 64em) {
+	:root {
+		--social-nav-width: 16rem;
+		--social-nav-y-pos: 8rem;
+
+		--triangle-tab-width: 2.5rem;
+		--triangle-tab-length: 1.25rem;
+
+		--triangle-right-offset: calc(var(--social-nav-width) / 2 - 1.25*var(--padding-small-text-sec));
+
+
+	}
+	.socials {
+		right: calc(var(--padding-small-text-sec) + var(--share-btn-width)/2 - var(--social-nav-width) / 2 );
+	}
+
+	.triangle:after {
+		top: auto;
+		bottom: calc(-1.5 * var(--triangle-tab-length) - var(--social-nav-height) / 2);
+		right: var(--triangle-right-offset);
+
+		/* Some cool border tricks to make the triangle */ 
+		border-right: calc(var(--triangle-tab-width) / 2) solid transparent; 
+		border-left: calc(var(--triangle-tab-width) / 2) solid transparent;
+		border-top: var(--triangle-tab-length) solid var(--very-dark-grayish-blue);
+	}
+}
+
+
