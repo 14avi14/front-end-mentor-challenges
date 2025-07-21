@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
-  <link rel="stylesheet" type="text/css" href="style.css">
-
+  <link rel="stylesheet" type="text/css" href="./style.css">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <script defer src="./script.js"></script>
   
   <title>Frontend Mentor | Newsletter sign-up form with success message</title>
 
@@ -38,7 +39,7 @@
         <li>And much more!</li>
       </ul>
 
-      <form>
+      <form id="form" novalidate>
         <div>
           <label for="email">Email address</label>
           <span id="email-error" aria-live="polite"></span>
@@ -60,9 +61,9 @@
 
     <h1>Thanks for subscribing!</h1>
 
-    <p>A confirmation email has been sent to ash@loremcompany.com. Please open it and click the button inside to confirm your subscription.</p>
+    <p>A confirmation email has been sent to <span id="user-email">ash@loremcompany.com.</span> Please open it and click the button inside to confirm your subscription.</p>
 
-    <button>Dismiss message</button>
+    <button id="dismiss-msg-btn">Dismiss message</button>
 
   </article>
 
