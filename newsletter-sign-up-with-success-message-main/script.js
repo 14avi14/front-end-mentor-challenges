@@ -19,8 +19,8 @@ function handleSubmit(e) {
 	emailErrorEl.textContent = emailErrorMessage; 
 
 	if (!emailErrorMessage) {
-		formPageEl.style.display = "none";
-		successPageEl.style.display = "block";
+		formPageEl.classList.add("hidden");
+		successPageEl.classList.remove("hidden")
 		
 
 		userEmailEl.textContent = email; // Customize the success page 
@@ -45,7 +45,7 @@ formEl.addEventListener("submit", handleSubmit);
 
 dismissMessageButton.addEventListener("click", function() { 
 	// After dismissing message, revert back to form page
-	formPageEl.style.display = "";
-	successPageEl.style.display = "none";
+	formPageEl.classList.remove("hidden");
+	successPageEl.classList.add("hidden");
 });
 

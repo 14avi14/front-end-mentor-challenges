@@ -131,9 +131,6 @@ h1 {
 
 
 
-.hidden {
-	display: none;
-}
 
 
 /* || STYLE FORM PAGE */
@@ -273,6 +270,12 @@ button:hover {
 
 button:active {
 	transform: scale(0.95);
+}
+
+
+/* Need to put at the end so that it doesn't get overwritten! */
+.hidden {
+	display: none;
 }
 
 
