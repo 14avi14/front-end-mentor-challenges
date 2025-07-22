@@ -1,3 +1,11 @@
+/* || CSS RESET */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
 /* || FONTS */
 
 /* Super helpful article: https://www.hacksoft.io/blog/using-multiple-font-files-the-right-way  */
@@ -15,15 +23,365 @@
 	font-weight: 700;
 }
 
+/* || VARIABLES */
+
+:root {
+	--red: hsl(4, 100%, 67%);
+	--blue800: hsl(234, 29%, 20%);
+	--blue700: hsl(235, 18%, 26%); /* Slightly lighter*/
+	--grey: hsl(0, 0%,58%);
 
 
+	
+	/* DIMENSIONS */
+	
+	--sign-up-page-width-small: 100%;
+
+	--sign-up-page-width-tablet: 42rem;
+	--sign-up-page-height-tablet: 42rem;
+
+	--sign-up-page-width-desktop: 48rem;
+	--sign-up-page-height-desktop: 30rem;
+
+	--success-page-width-large: 25rem;
+
+	/* PADDING/MARGIN */
+
+	--sign-up-form-padding-topbottom: 2rem;
+	--sign-up-form-padding-leftright: 0.8rem;
+
+	--success-page-padding-leftright: 0.8rem;
+	--success-page-padding-topbottom: 1rem;
+
+	--li-marker-gap: 0.5rem;
+
+
+	/* FONT SIZE */
+
+	--sign-up-form-label: 0.7rem;
+
+	--h1-size: 2rem;
+	--norm-text-size: 1rem;
+
+
+	--border-radius-article: 1rem;
+	--border-radius-el: 0.5rem;
+
+
+}
 
 
 body {
 	font: 1rem Roboto;
+	color: var(--blue700);
+	
+
+	width: 100vw;
+	height: 100vh;
+
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
 }
 
 
+h1 {
+	font-size: var(--h1-size);
+}
+
+
+/* Make invisible at first */
+
 .success-message-page {
+	
+	background-color: white;
+
+	flex-grow: 1;
+
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-between;
+	align-items: center;
+
+	padding-inline: var(--success-page-padding-leftright);
+	padding-top: var(--success-page-padding-topbottom);
+	padding-bottom: var(--success-page-padding-topbottom);
+
+}
+
+
+.success-message-text {
+	margin-top: 2rem;
+
+	display: flex;
+	flex-flow: column nowrap;
+
+	gap: 1rem;
+}
+
+.success-message-text span {
+	font-weight: 700;
+}
+
+.success-message-page button {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+
+
+.hidden {
 	display: none;
+}
+
+
+/* || STYLE FORM PAGE */
+
+.sign-up-form-page {
+
+	width: var(--sign-up-page-width-small);
+
+	background-color: white;
+
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-evenly;
+}
+
+.sign-up-form-page img {
+	width: 100%;
+	height: auto;
+}
+
+
+.sign-up-text-section {
+	padding-top: var(--sign-up-form-padding-topbottom);
+	padding-bottom: var(--sign-up-form-padding-topbottom);
+	padding-inline: var(--sign-up-form-padding-leftright);
+
+	display: flex;
+	flex-flow: column nowrap;
+	gap: 1rem;
+}
+
+
+
+.sign-up-text-section p {
+	font-size: var(--norm-text-size);
+}
+
+
+.sign-up-description {
+	display: grid;
+	gap: 1rem;
+}
+
+
+
+/*
+Spent way too long trying to make the marker lineup
+Should've just use ::before first!
+*/
+ul {
+	width: 100%;
+	list-style: none;
+
+
+
+	display: grid;
+	gap: 0.5rem;
+}
+
+li {
+	font-size: var(--norm-text-size);
+
+	display: flex;
+
+	gap: var(--li-marker-gap);
+}
+
+li::before {
+	content: url("./assets/images/icon-list.svg");
+}
+
+
+.label-sec {
+	display: flex;
+	justify-content: space-between;
+
+	font-size: var(--sign-up-form-label);
+
+	margin-bottom: 0.3rem;
+}
+
+.label-sec label{
+	color: var(--blue800);
+	
+	font-weight: 700;
+}
+
+.label-sec span {
+	color: var(--red);
+}
+
+
+
+/* Form */
+
+form {
+	width: 100%;
+}
+
+input[type="email"] {
+	width: 100%;
+	padding: 0.8rem;
+
+	border: 2px solid var(--grey);
+	border-radius: var(--border-radius-el);
+
+	margin-bottom: 1rem;
+}
+
+input[type="email"]:hover {
+	cursor: pointer;
+}
+
+button {
+	width: 100%;
+	height: 3rem;
+
+	border-radius: var(--border-radius-el);
+	border: none;
+
+	background-color: var(--blue800);
+	color: white;
+	font-family: Roboto;
+	font-weight: 700;
+
+	transition: all 0.1s;
+
+
+}
+
+button:hover {
+	cursor: pointer;
+	background: linear-gradient(90deg, #FF3E83, #FD8E47);
+
+	box-shadow: 0 1rem 2rem hsl(339, 100%, 62%, 0.3);
+}
+
+button:active {
+	transform: scale(0.95);
+}
+
+
+@media (min-width: 48em) {
+
+	:root {
+		--sign-up-form-padding-leftright: 2.5rem;
+		--success-page-padding-leftright: 2.5rem;
+	}
+
+	body {
+		background-color: var(--blue700);
+	}
+
+
+	.sign-up-form-page {
+		width: var(--sign-up-page-width-tablet);
+		height: var(--sign-up-page-height-tablet);
+
+		border-radius: var(--border-radius-article);
+	}
+
+	.sign-up-form-page picture {
+		width: 100%;
+		padding: 1rem;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.sign-up-form-page img {
+		width: auto;
+		height: 100%;
+	}
+
+
+
+	.sign-up-text-section {
+		flex-flow: row nowrap;
+	}
+
+	.sign-up-description {
+		width: 50%;
+	}
+
+	form {
+		width:50%;
+		display: grid;
+		grid-template-rows: center;
+		align-items: end;
+	}
+
+	form button {
+		align-self: start;
+	}
+
+	.success-message-page {
+		flex-grow: 0; /* Prevent it from growing and taking up the whole screen */
+		width: var(--success-page-width-large);
+		height: var(--success-page-width-large);
+
+		border-radius: var(--border-radius-article);
+	}
+
+	.attribution {
+		color: white;
+	}
+
+}
+
+
+@media (min-width: 64em) {
+
+	.sign-up-form-page {
+		width: var(--sign-up-page-width-desktop);
+		height: var(--sign-up-page-height-desktop);
+
+		border-radius: var(--border-radius-article);
+
+		flex-flow: row-reverse nowrap;
+	}
+
+
+	.sign-up-form-page picture {
+		width: 50%;
+		padding: 1rem;
+
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+	}
+	.sign-up-form-page img {
+		width: auto;
+		height: 100%;
+	}
+
+	.sign-up-text-section {
+		flex-flow: column nowrap;
+	}
+
+	.sign-up-description {
+		width: 100%;
+	}
+
+	form {
+		width:100%;
+		display: block;
+	}
+
+
+
 }

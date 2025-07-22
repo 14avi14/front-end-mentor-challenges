@@ -28,21 +28,24 @@
       <img src="./assets/images/illustration-sign-up-mobile.svg" alt="Background illustration">
     </picture>
 
-    <section class="text-section">
-      <h1>Stay updated!</h1>
+    <section class="sign-up-text-section">
+      <section class="sign-up-description">
+        <h1>Stay updated!</h1>
 
-      <p>Join 60,000+ product managers receiving monthly updates on:</p>
+        <p>Join 60,000+ product managers receiving monthly updates on:</p>
 
-      <ul>
-        <li>Product discovery and building what matters</li>
-        <li>Measuring to ensure updates are a success</li>
-        <li>And much more!</li>
-      </ul>
-
+        <ul>
+          <li>Product discovery and building what matters</li>
+          <li>Measuring to ensure updates are a success</li>
+          <li>And much more!</li>
+        </ul>
+      </section>
       <form id="form" novalidate>
         <div>
-          <label for="email">Email address</label>
-          <span id="email-error" aria-live="polite"></span>
+          <div class="label-sec">
+            <label for="email">Email address</label>
+            <span id="email-error" aria-live="polite"></span>
+          </div>
           <input id="email" name="email" type="email" placeholder="email@company.com">
         </div>
 
@@ -55,13 +58,16 @@
 
   <!-- Success message start -->
 
-  <article class="success-message-page">
+  <article class="success-message-page hidden">
+    <section class="success-message-text">
 
-    <img src="./assets/images/icon-success.svg">
+      <img src="./assets/images/icon-success.svg" width="64" height="64">
 
-    <h1>Thanks for subscribing!</h1>
+      <h1>Thanks for subscribing!</h1>
 
-    <p>A confirmation email has been sent to <span id="user-email">ash@loremcompany.com.</span> Please open it and click the button inside to confirm your subscription.</p>
+      <p>A confirmation email has been sent to <span id="user-email">ash@loremcompany.com.</span> Please open it and click the button inside to confirm your subscription.</p>
+
+    </section>
 
     <button id="dismiss-msg-btn">Dismiss message</button>
 

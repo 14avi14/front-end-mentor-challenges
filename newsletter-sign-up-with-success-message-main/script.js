@@ -16,7 +16,7 @@ function handleSubmit(e) {
 
 	const emailErrorMessage = verifyEmail(email);
 
-	emailErrorEl.textContent = emailErrorMessage;
+	emailErrorEl.textContent = emailErrorMessage; 
 
 	if (!emailErrorMessage) {
 		formPageEl.style.display = "none";
@@ -24,8 +24,10 @@ function handleSubmit(e) {
 		
 
 		userEmailEl.textContent = email; // Customize the success page 
+		console.log(userEmailEl);
 		e.target.reset(); // Reset form inputs 
-	}	
+		
+	}
 }
 
 function verifyEmail(email) {
@@ -43,7 +45,7 @@ formEl.addEventListener("submit", handleSubmit);
 
 dismissMessageButton.addEventListener("click", function() { 
 	// After dismissing message, revert back to form page
-	formPageEl.style.display = "block";
+	formPageEl.style.display = "";
 	successPageEl.style.display = "none";
 });
 
