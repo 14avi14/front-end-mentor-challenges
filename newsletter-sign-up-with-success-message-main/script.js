@@ -17,6 +17,7 @@ function handleSubmit(e) {
 	const emailErrorMessage = verifyEmail(email);
 
 	emailErrorEl.textContent = emailErrorMessage; 
+	e.target.classList.remove("email-error");
 
 	if (!emailErrorMessage) {
 		formPageEl.classList.add("hidden");
@@ -27,6 +28,8 @@ function handleSubmit(e) {
 		console.log(userEmailEl);
 		e.target.reset(); // Reset form inputs 
 		
+	} else {
+		e.target.classList.add("email-error");
 	}
 }
 

@@ -236,12 +236,21 @@ input[type="email"] {
 
 	border: 2px solid var(--grey);
 	border-radius: var(--border-radius-el);
+}
 
+.email-container {
 	margin-bottom: 1rem;
 }
 
 input[type="email"]:hover {
 	cursor: pointer;
+}
+
+.email-error input[type="email"]{
+	border: 2px solid var(--red);
+	background-color: color-mix(in srgb, var(--red) 20%, transparent 70%);
+
+	
 }
 
 button {
