@@ -1,0 +1,316 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+/* || GENERAL STYLES */
+
+
+:root {
+    --purple600: hsl(246, 80%, 60%);
+    --orange300: hsl(15, 100%, 70%);
+    --blue300: hsl(195, 74%, 62%);
+    --pink400: hsl(348, 100%, 68%);
+    --green400: hsl(145, 58%, 55%);
+    --purple700: hsl(264, 64%, 52%);
+    --yellow300: hsl(43, 84%, 65%);
+    --navy950: hsl(226, 43%, 10%);
+    --navy900: hsl(235, 46%, 20%);
+    --purple500: hsl(235, 45%, 61%);
+    --navy200: hsl(236, 100%, 87%);
+
+    /* FONT-SIZES */
+    --small-font-size: 1rem;
+
+    /* MARGIN/PADDING */
+    --main-grid-gap: 1rem;
+    --main-width-large: 90%;
+    --main-height-large: 80%;
+
+
+    --bio-section-padding: clamp(1rem, 5vw, 1.5rem);
+    --info-container-margin-top: 2.25rem;
+    --card-padding: 1.5rem;
+
+
+    /* WIDTH/HEIGHT */
+    --profile-pic-width: min(15vw, 4rem);
+    --bio-section-height: max(10rem, 15vw);
+
+    --card-width: max(18rem, 90vw);
+    --card-height: clamp(8rem, 40vw, 10.625rem);
+    
+
+    --bg-icon-width: 4rem;
+    
+
+
+    --border-radius-cards: 0.75rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font: 1rem "Rubik", sans-serif;
+
+    width: 100vw;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--navy950);
+    color: white;
+}
+
+main {
+    display: grid;
+    
+    
+    grid-template-areas: 
+        "bio"
+        "work"
+        "play"
+        "study"
+        "exer"
+        "social"
+        "self";
+
+    grid-template-columns: var(--card-width);
+    grid-template-rows: repeat(7, var(--card-height));
+
+    gap: var(--main-grid-gap);
+
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    
+}
+
+article {
+    border-radius: var(--border-radius-cards);
+    /* width: var(--card-width);
+    height: var(--card-height); */
+}
+
+
+.bio-card {
+    grid-area: bio;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+
+    background-color: var(--navy900);
+}
+
+.bio-section {
+    align-self: start;
+
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    background-color: var(--purple600);
+    border-radius: var(--border-radius-cards);
+
+    width: var(--card-width);
+    height: var(--bio-section-height);
+
+    padding: var(--bio-section-padding);
+}
+
+.bio-section p {
+    color: var(--navy200);
+    font-weight: 300;
+    font-size: var(--small-font-size);
+}
+
+.bio-section h1 {
+    font-weight: 300;
+}
+
+.bio-section img {
+    width: var(--profile-pic-width);
+    height: auto;
+
+    border: 3px solid white;
+    border-radius: 50%;
+}
+
+#time-frame-select-sec {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: var(--card-padding);
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+/* Select all labels that follows the radio button  */
+input[type="radio"] + label{ 
+    color: var(--navy200);
+}
+
+:is(input[type="radio"]:checked, input[type="radio"]:active) + label{ 
+    color: white;
+}
+
+/* Other cards */
+
+.info-card {
+    position: relative;
+    display: flex;
+
+    overflow: hidden;
+    
+}
+
+/* Set BG colors */
+.info-card:nth-child(2){
+    grid-area: work;
+    background-color: var(--orange300);
+}
+.info-card:nth-child(3) {
+    grid-area: play;
+    background-color: var(--blue300);
+}
+.info-card:nth-child(4) {
+    grid-area: study;
+    background-color: var(--pink400);
+}
+.info-card:nth-child(5) {
+    grid-area: exer;
+    background-color: var(--green400);
+}
+.info-card:nth-child(6) {
+    grid-area: social;
+    background-color: var(--purple700);
+}
+.info-card:nth-child(7) {
+    grid-area: self;
+    background-color: var(--yellow300);
+}
+
+.card-bg-icons {
+    position: absolute;
+    top: -0.3rem;
+    right: 0.5rem;
+
+
+    width: var(--bg-icon-width);
+    height: auto;
+}
+
+.info-container {
+    flex-grow: 1;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+
+    /* z-index doesn't work with default position static */
+    position: relative;
+    z-index: 1;
+    
+    margin-top: var(--info-container-margin-top);
+    padding: var(--card-padding);
+
+    background-color: var(--navy900);
+    border-radius: var(--border-radius-cards);
+
+}
+
+/* https://www.matuzo.at/blog/2022/100daysof-day50 VERY USEFUL */
+.info-container:not(:has(button:active)):active {
+    filter: brightness(1.5);
+}
+
+:is(.info-container) header, .time-spent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.info-container header h2{
+    font-size: 1.2rem;
+    font-weight: 500;
+
+}
+
+.info-container header button {
+    background-color: transparent;
+    border:none
+}
+
+.info-container header button:active {
+    filter: brightness(1.5);
+}
+
+:is(.time-spent) h3, p{
+    font-weight: 300;
+}
+
+.time-spent h3 {
+    font-size: 1.5rem;
+}
+
+.time-spent p {
+    color: var(--navy200);
+    font-size: var(--small-font-size);
+}
+
+
+@media (min-width: 64em) {
+    :root {
+        --card-width: min(23vw, 16.8rem);
+        --card-height: var(--card-width);
+
+
+        --profile-pic-width: 5rem;
+    }
+    main {
+        grid-template-areas: 
+            "bio work play study"
+            "bio exer social self";
+        
+        grid-template-columns: repeat(4, var(--card-width));
+        grid-template-rows: repeat(2, var(--card-height));   
+    }
+
+    .bio-section {
+        flex-flow: column nowrap;
+        align-items: flex-start;
+        gap: 2rem;
+
+        flex-grow: 1;
+
+
+    }
+
+    .bio-section h1 {
+        font-size: 2rem;
+    }
+
+    #time-frame-select-sec {
+        flex-flow: column nowrap;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .time-spent {
+        flex-grow: 1;
+        flex-flow: column nowrap;
+        align-items: flex-start;
+        justify-content: flex-end;
+    }
+
+    .time-spent h3 {
+        font-size: 4rem;
+    }
+
+}
