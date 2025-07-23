@@ -65,7 +65,21 @@ body {
     color: white;
 }
 
+/* Loading  */
+.loading { 
+    filter: brightness(0.5);
+    animation: loadingData 1.5s;
+    cursor: wait;
+}
+
+@keyframes loadingData {
+    
+}
+
+
 main {
+
+    
     display: grid;
     
     

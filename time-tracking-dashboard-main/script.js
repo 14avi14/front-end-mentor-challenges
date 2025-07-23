@@ -2,6 +2,11 @@
 const timeSpentSections = document.querySelectorAll(".time-spent");
 const timeframeRadioBtns = document.getElementsByName("timeframe-radio-buttons");
 
+// Get main element to toggle loadingData "animation"
+const mainEl = document.querySelector("main");
+
+
+
 let timeframe = "weekly";
 
 
@@ -10,11 +15,15 @@ for (const btn of timeframeRadioBtns) {
     btn.addEventListener("change", function() {
         if (this.checked && dataObj) { // Make sure data is actually loaded
             timeframe = this.id;
-            setTimeSections(dataObj, timeframe);
+            mainEl.classList.add("loading");
         }
     });
 }
 
+mainEl.addEventListener("animationend", function() {
+    this.classList.remove("loading");
+    setTimeSections(dataObj, timeframe);
+});
 
 
 // Get JSON data
