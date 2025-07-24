@@ -16,29 +16,67 @@
 </head>
 <body>
 
-  Bill
+  <header>
+    <img src="./images/logo.svg" alt="Logo image">
+  </header>
 
-  Select Tip %
-  5%
-  10%
-  15%
-  25%
-  50%
-  Custom
 
-  Number of People
+  <main>
 
-  Tip Amount
-  / person
+    <form>
+      <div>
+        <!-- Not sure if it is better to use <header> element or not -->
+        <div class="input-header">
+          <label for="bill-input">Bill</label>
+          <span id="bill-error" aria-live="polite"></span>
+        </div>
+        <input type="number" id="bill-input" name="bill" placeholder="0"/> 
+      </div>
 
-  Total
-  / person
+      <div>
+        <label for="tips">Select Tip %</label>
+        <ul>
+          <li><input type="radio" id="5p-tip" name="tips"><label for="5p-tip">5%</label></li>
+          <li><input type="radio" id="10p-tip" name="tips"><label for="10p-tip">10%</label></li>
+          <li><input type="radio" id="15p-tip" name="tips"><label for="15p-tip">15%</label></li>
+          <li><input type="radio" id="25p-tip" name="tips"><label for="25p-tip">25%</label></li>
+          <li><input type="radio" id="50p-tip" name="tips"><label for="50p-tip">50%</label></li>
+          <li>
+            <input type="number" id="custom-tip-value" placeholder="Custom">
+            <span id="custom-tip-error"></span>
+          </li> <!--Not sure if this is the best way-->
+        </ul>
+      </div>
 
-  Reset
+      <div>
+        <div class="input-header">
+          <label for="num-people-input">Number of People</label>
+          <span id="num-people-error" aria-live="polite"></span>
+        </div>
+        <input type="number" id="nump-people-input" name="num-people" placeholder="0"/>
+      </div>
+    </form>
+
+    <article>
+      <section class="output-sections">
+        <section class="output-sec" id="tip-amount-out">
+          <h2>Tip Amount</h2>
+          <p>/ person</p>
+        </section>
+
+        <section class="output-sec" id="total-out">
+          <h2>Total</h2>
+          <p>/ person</p>
+        </section>
+      </section>
+
+      <button id="reset-btn" disabled>Reset</button>
+    </article>
+  </main>
   
   <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    <i>Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://github.com/14avi14" target="_blank">14avi14</a>.</i>
   </div>
 </body>
 </html>
