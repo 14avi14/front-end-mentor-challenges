@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <script src="./script.js" defer></script>
   <title>Frontend Mentor | Tip calculator app</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
@@ -23,27 +23,27 @@
 
   <main>
 
-    <form>
+    <form id="form" novalidate>
       <div>
         <!-- Not sure if it is better to use <header> element or not -->
         <div class="input-header">
           <label for="bill-input">Bill</label>
-          <span id="bill-error" aria-live="polite"></span>
+          <span id="bill-error" class="error-message" aria-live="polite" ></span>
         </div>
-        <input type="number" id="bill-input" name="bill" placeholder="0"/> 
+        <input type="number" id="bill-input" class="input-elements" name="bill" placeholder="0"> 
       </div>
 
       <div>
         <label for="tips">Select Tip %</label>
         <ul>
-          <li><input type="radio" id="5p-tip" name="tips"><label for="5p-tip">5%</label></li>
-          <li><input type="radio" id="10p-tip" name="tips"><label for="10p-tip">10%</label></li>
-          <li><input type="radio" id="15p-tip" name="tips"><label for="15p-tip">15%</label></li>
-          <li><input type="radio" id="25p-tip" name="tips"><label for="25p-tip">25%</label></li>
-          <li><input type="radio" id="50p-tip" name="tips"><label for="50p-tip">50%</label></li>
+          <li><input type="radio" id="5p-tip" name="tips" value="5" checked><label for="5p-tip">5%</label></li>
+          <li><input type="radio" id="10p-tip" name="tips" value="10"><label for="10p-tip">10%</label></li>
+          <li><input type="radio" id="15p-tip" name="tips" value="15"><label for="15p-tip">15%</label></li>
+          <li><input type="radio" id="25p-tip" name="tips" value="25"><label for="25p-tip">25%</label></li>
+          <li><input type="radio" id="50p-tip" name="tips" value="50"><label for="50p-tip">50%</label></li>
           <li>
-            <input type="number" id="custom-tip-value" placeholder="Custom">
-            <span id="custom-tip-error"></span>
+            <input type="number" id="custom-tip-value" class="input-elements" name="" placeholder="Custom">
+            <span id="tips-error" class="error-message"></span>
           </li> <!--Not sure if this is the best way-->
         </ul>
       </div>
@@ -51,22 +51,28 @@
       <div>
         <div class="input-header">
           <label for="num-people-input">Number of People</label>
-          <span id="num-people-error" aria-live="polite"></span>
+          <span id="num-people-error" class="error-message" aria-live="polite"></span>
         </div>
-        <input type="number" id="nump-people-input" name="num-people" placeholder="0"/>
+        <input type="number" id="num-people-input" class="input-elements" name="num-people" placeholder="0"/>
       </div>
     </form>
 
     <article>
       <section class="output-sections">
-        <section class="output-sec" id="tip-amount-out">
-          <h2>Tip Amount</h2>
-          <p>/ person</p>
+        <section class="output-sec">
+          <div>
+            <h2>Tip Amount</h2>
+            <p>/ person</p>
+          </div>
+          <strong id="tip-amount-output" class="output-elements">0.00</strong>
         </section>
 
-        <section class="output-sec" id="total-out">
-          <h2>Total</h2>
-          <p>/ person</p>
+        <section class="output-sec">
+          <div>
+            <h2>Total</h2>
+            <p>/ person</p>
+          </div>
+          <strong id="total-amount-out" class="output-elements">0.00</strong>
         </section>
       </section>
 
