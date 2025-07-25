@@ -100,8 +100,6 @@ const calculations = {
     }
 }
 
-
-
 function calculateTipPerPerson(bill, tipPercentage, numPeople) {
 
     return numPeople != 0 ? (bill * (tipPercentage/100)) / numPeople: 0;
@@ -114,8 +112,6 @@ function calculateTotalPerPerson(bill, tipPercentage, numPeople) {
 function validKeyValue(key, value, validations) {
     return !validations[key] || validations[key](value);
 }
-
-
 
 function validateForm(dataObj, validations) {
     const errors = {};
