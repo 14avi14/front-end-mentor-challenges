@@ -52,12 +52,12 @@
 
 
     /* FONT */
-    --input-header-font-size: min(1.5rem, 4vw);
+    --input-header-font-size: min(1.25rem, 4vw);
     --input-elements-font-size: min(1.5rem, 5vw);
 
-    --output-sec-h2-font-size: min(1.5rem, 4vw);
+    --output-sec-h2-font-size: min(1.3rem, 4vw);
     --output-sec-p-font-size: min(1rem, 3.5vw);
-    --output-sec-price-font-size: max(1.5rem, 5vw);
+    --output-sec-price-font-size: clamp(1.5rem, 5vw, 4rem);
 
 
     --button-font-size: min(1.5rem, 6vw);
