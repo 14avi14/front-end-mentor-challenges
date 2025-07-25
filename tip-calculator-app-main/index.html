@@ -5,10 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
   <script src="./script.js" defer></script>
   <title>Frontend Mentor | Tip calculator app</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <link rel="stylesheet" href="./style.css">
   <style>
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
@@ -24,18 +26,21 @@
   <main>
 
     <form id="form" novalidate>
-      <div>
+      <section>
         <!-- Not sure if it is better to use <header> element or not -->
         <div class="input-header">
           <label for="bill-input">Bill</label>
           <span id="bill-error" class="error-message" aria-live="polite" ></span>
         </div>
-        <input type="number" id="bill-input" class="input-elements" name="bill" placeholder="0"> 
-      </div>
+        <div class="input-section">
+          <input type="number" id="bill-input" class="input-elements" name="bill" placeholder="0"> 
+          <img src="./images/icon-dollar.svg" alt="Dollar Icon" class="input-elements-icons">
+        </div>
+      </section>
 
-      <div>
-        <label for="tips">Select Tip %</label>
-        <ul>
+      <section>
+        <label class="input-header">Select Tip %</label>
+        <ul class="radio-btns-ul">
           <li><input type="radio" id="5p-tip" name="tips" value="5" checked><label for="5p-tip">5%</label></li>
           <li><input type="radio" id="10p-tip" name="tips" value="10"><label for="10p-tip">10%</label></li>
           <li><input type="radio" id="15p-tip" name="tips" value="15"><label for="15p-tip">15%</label></li>
@@ -46,15 +51,18 @@
             <span id="tips-error" class="error-message"></span>
           </li> <!--Not sure if this is the best way-->
         </ul>
-      </div>
+      </section>
 
-      <div>
+      <section>
         <div class="input-header">
           <label for="num-people-input">Number of People</label>
           <span id="num-people-error" class="error-message" aria-live="polite"></span>
         </div>
-        <input type="number" id="num-people-input" class="input-elements" name="num-people" placeholder="0"/>
-      </div>
+        <div class="input-section">
+          <input type="number" id="num-people-input" class="input-elements" name="num-people" placeholder="0"/>
+          <img src="./images/icon-person.svg" alt="Dollar Icon" class="input-elements-icons">
+        </div>
+      </section>
     </form>
 
     <article>
@@ -76,7 +84,7 @@
         </section>
       </section>
 
-      <button id="reset-btn" disabled>Reset</button>
+      <button id="reset-btn" disabled="true">Reset</button>
     </article>
   </main>
   

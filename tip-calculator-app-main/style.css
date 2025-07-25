@@ -1,0 +1,230 @@
+ @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* CSS RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* GENERAL STYLES */
+
+:root {
+    --green400: hsl(172, 67%, 45%);
+    --green900: hsl(183, 100%, 15%);
+    --grey500: hsl(186, 14%, 43%);
+    --grey400: hsl(184, 14%, 56%);
+    --grey200: hsl(185, 41%, 84%);
+    --grey50: hsl(189, 47%, 97%);
+    --white: hsl(0, 100%, 100%);
+  
+
+
+    /* MARGIN/PADDING */
+    --header-margin-top: 2rem;
+    --header-margin-bottom: var(--header-margin-top);
+
+    --main-padding: 2rem;
+
+    --form-section-gap: 1.25rem;
+
+    --input-elements-padding-tb: 0.4rem;
+    --input-elements-padding-inline: 1rem;
+    --input-elements-header-margin-bottom: 0.75rem;
+
+    --tip-grid-gap: 0.75rem;
+
+    /* DIMENSIONS */
+
+    --main-width: min(100%, 44rem);
+    --main-height: min(100%, 30rem);
+
+    --form-width: 100%;
+
+
+    /* FONT */
+    --input-header-font-size: 0.9rem;
+    --input-elements-font-size: 1rem;
+
+
+    /* OTHER */
+
+    --main-border-radius: 1rem;
+    --input-elements-border-radius: 0.2rem;
+
+    --input-elements-focused-border: 2px solid var(--green400);
+
+
+}
+
+body {
+    font: 1rem "Space Mono", monospace;
+    font-weight: 700;
+
+    background-color: var(--grey200);
+
+    width: 100vw;
+    min-height: 100vh;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Remove `spinner` from number inputs */
+/* Source: https://www.w3schools.com/howto/howto_css_hide_arrow_number.asp */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+ul {
+    list-style: none;
+}
+
+/* MAIN */
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: var(--header-margin-top);
+    margin-bottom: var(--header-margin-bottom);
+}
+
+main {
+
+    width: var(--main-width);
+    height: var(--main-height);
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--white);
+
+    border-radius: var(--main-border-radius);
+    padding: var(--main-padding);
+}
+
+form {
+    width: var(--form-width);
+    display: grid;
+    gap: var(--form-section-gap);
+}
+
+.input-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: var(--input-elements-header-margin-bottom);
+    font-size: var(--input-header-font-size);
+    color: var(--grey400);
+
+   
+}
+
+.error-message {
+    color: red;
+    font-size: var(--input-header-font-size);
+    opacity: 0.5;
+}
+
+.input-elements {
+    width: 100%;
+    font-family: "Space Mono", monospace;
+    font-size: var(--input-elements-font-size);
+    font-weight: 700;
+    text-align: right;
+    color: var(--green900);
+    caret-color: var(--green400);
+
+    padding: var(--input-elements-padding-tb);
+    padding-inline: var(--input-elements-padding-inline);
+    border: none;
+    border-radius: var(--input-elements-border-radius);
+    background-color: var(--grey50);
+
+    position: relative;
+    
+}
+
+.input-elements:focus, .input-error{
+    outline: var(--input-elements-focused-border);
+}
+
+.input-error, .input-error:focus {
+    outline-color: rgba(255, 0, 0, 0.5);
+}
+
+.input-section {
+    position: relative;
+}
+
+.input-section img {
+    position: absolute;
+    top: 50%;
+    left: var(--input-elements-padding-inline);
+
+    transform: translateY(-50%);
+}
+
+li input[type="radio"] {
+    display: none;
+}
+
+.radio-btns-ul {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--tip-grid-gap);
+}
+
+.radio-btns-ul li:has(input[type="radio"]) {
+    background-color: var(--green900);
+    border-radius: var(--input-elements-border-radius);
+    color: var(--white);    
+}
+
+.radio-btns-ul li:has(input[type="radio"]:checked) {
+    background-color: var(--green400);
+}
+
+li > label {
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    place-content: center;
+}
+
+li:has(input[type="number"]) {
+    position: relative;
+}
+
+li:has(input[type="number"]) > span {
+    position: absolute;
+
+    left: 0;
+    bottom: -1.2rem;
+}
+
+
+
+
+
+
+
+

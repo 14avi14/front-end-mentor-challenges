@@ -1,8 +1,9 @@
 const form = document.getElementById("form");
 const inputElements = document.querySelectorAll(".input-elements");
 const outputElements = document.querySelectorAll(".output-elements");
-
 const errorElements = form.querySelectorAll(".error-message");
+
+const resetBtn = document.getElementById("reset-btn");
 
 
 
@@ -38,6 +39,12 @@ tipRadioBtns.forEach((btn) => {
     btn.addEventListener("change", function()  {handleRadioBtnChange(this, customTipValueEl)});
 });
 
+function resetElements(elements){
+    for (const el of elements) {
+        el.textContent = "";
+        el.value = "";
+    }
+}
 
 function moreThanZero(val) {
      if (val == 0 && val !== "") {
@@ -56,7 +63,7 @@ const validations = {
     bill: (bill) => moreThanZero(bill),
     tips: (tip) => {
         if (tip < 0) {
-            return "Tip can't be negative";
+            return "Invalid";
         }
         return "";
     },
@@ -65,7 +72,7 @@ const validations = {
         if (morethanzero) {
             return morethanzero;
         } else if (!isInteger(numPeople)){
-            return "Can't have decimal";
+            return "Invalid";
         } else {
             return "";
         }
@@ -136,15 +143,14 @@ function updateOutput(outputElements, dataObj, calculations) {
     }
 }
 
-function updateDOM(form, validations, calculations, errorElements, inputElements, outputElements) {
+function updateDOM(form, validations, calculations, errorElements, inputElements, outputElements, resetBtn) {
     const formData = new FormData(form);
     const dataObj = Object.fromEntries(formData);
     const errors = validateForm(dataObj, validations); // Object with error messages
 
     if (!renderErrors(errors, errorElements, inputElements)) { // Will return zero if all error messages were ""
-
         updateOutput(outputElements, dataObj, calculations);
-        
+        resetBtn.disabled = false;
     }
 
 
@@ -152,5 +158,13 @@ function updateDOM(form, validations, calculations, errorElements, inputElements
 
 form.addEventListener("change", (e) => {
     e.preventDefault();
-    updateDOM(e.currentTarget, validations, calculations, errorElements, inputElements, outputElements);
+    updateDOM(e.currentTarget, validations, calculations, errorElements, inputElements, outputElements, resetBtn);
+});
+
+resetBtn.addEventListener("click", function() {
+    resetBtn.disabled = true;
+    resetElements(inputElements);
+    resetElements(outputElements);
+    resetElements(errorElements);
+    updateDOM(e.currentTarget, validations, calculations, errorElements, inputElements, outputElements, resetBtn);
 });
