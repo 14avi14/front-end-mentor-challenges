@@ -43,14 +43,22 @@ function resetElements(elements){
     for (const el of elements) {
         el.textContent = "";
         el.value = "";
+        el.checked = false;
     }
+}
+function resetOutput(elements) {
+    for (const el of elements) {
+        el.textContent = "$0.00";
+        el.value = "";
+        el.checked = false;
+    } 
 }
 
 function moreThanZero(val) {
      if (val == 0 && val !== "") {
         return "Can't be zero";
     } else if (val < 0) {
-        return "Can't be less than zero";
+        return "Invalid";
     }
     return "";
 }
@@ -60,7 +68,11 @@ function isInteger(val) {
 }
 
 const validations = {
-    bill: (bill) => moreThanZero(bill),
+    bill: (bill) => {
+        if (bill < 0) {
+            return "Can't be less than zero";
+        }
+    },
     tips: (tip) => {
         if (tip < 0) {
             return "Invalid";
@@ -139,7 +151,7 @@ function updateOutput(outputElements, dataObj, calculations) {
     for (let i=0; i<outputElements.length;i++) {
         let output = calculations[i](dataObj);
         // Round to two decimal places
-        outputElements[i].textContent = output.toFixed(2); 
+        outputElements[i].textContent = `$${output.toFixed(2)}`; 
     }
 }
 
@@ -162,9 +174,12 @@ form.addEventListener("change", (e) => {
 });
 
 resetBtn.addEventListener("click", function() {
-    resetBtn.disabled = true;
+    
     resetElements(inputElements);
-    resetElements(outputElements);
+    resetElements(tipRadioBtns);
+    tipRadioBtns[0].checked = true;
+    resetOutput(outputElements);
     resetElements(errorElements);
-    updateDOM(e.currentTarget, validations, calculations, errorElements, inputElements, outputElements, resetBtn);
+    //updateDOM(form, validations, calculations, errorElements, inputElements, outputElements, resetBtn);
+    this.disabled = true;
 });

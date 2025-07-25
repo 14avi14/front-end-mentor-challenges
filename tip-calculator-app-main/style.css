@@ -19,6 +19,7 @@
     --grey50: hsl(189, 47%, 97%);
     --white: hsl(0, 100%, 100%);
   
+  
 
 
     /* MARGIN/PADDING */
@@ -26,6 +27,7 @@
     --header-margin-bottom: var(--header-margin-top);
 
     --main-padding: 2rem;
+    --main-gap: 1.25rem;
 
     --form-section-gap: 1.25rem;
 
@@ -35,23 +37,38 @@
 
     --tip-grid-gap: 0.75rem;
 
+    --output-article-padding: 1.5rem;
+    --output-article-min-gap: 2rem;
+    --output-sections-gap: 1.25rem;
+
     /* DIMENSIONS */
 
-    --main-width: min(100%, 44rem);
-    --main-height: min(100%, 30rem);
+    --main-width: min(100%, 60rem);
+    --main-height: min(100%, 35rem);
 
     --form-width: 100%;
 
+    --button-height: min(4rem, 15vw);
+
 
     /* FONT */
-    --input-header-font-size: 0.9rem;
-    --input-elements-font-size: 1rem;
+    --input-header-font-size: min(1.5rem, 4vw);
+    --input-elements-font-size: min(1.5rem, 5vw);
+
+    --output-sec-h2-font-size: min(1.5rem, 4vw);
+    --output-sec-p-font-size: min(1rem, 3.5vw);
+    --output-sec-price-font-size: max(1.5rem, 5vw);
+
+
+    --button-font-size: min(1.5rem, 6vw);
 
 
     /* OTHER */
 
     --main-border-radius: 1rem;
     --input-elements-border-radius: 0.2rem;
+
+    --output-article-border-radius: 0.75rem;
 
     --input-elements-focused-border: 2px solid var(--green400);
 
@@ -109,8 +126,8 @@ main {
 
     display: flex;
     flex-flow: column nowrap;
-    justify-content: center;
     align-items: center;
+    gap: var(--main-gap);
 
     background-color: var(--white);
 
@@ -192,28 +209,47 @@ li input[type="radio"] {
     gap: var(--tip-grid-gap);
 }
 
-.radio-btns-ul li:has(input[type="radio"]) {
+/* Handle Tip buttons */
+.tip-button, button{
     background-color: var(--green900);
     border-radius: var(--input-elements-border-radius);
     color: var(--white);    
-}
 
-.radio-btns-ul li:has(input[type="radio"]:checked) {
-    background-color: var(--green400);
-}
-
-li > label {
-    width: 100%;
-    height: 100%;
+    font: var(--button-font-size) "Space Mono", monospace;
+    font-weight: 700;
 
     display: grid;
     place-content: center;
+
+    transition: all 0.3s;
 }
+
+input[type="radio"]:checked + .tip-button, .tip-button:hover {
+    background-color: var(--green400);
+}
+
+/* Set button size */
+li > input, .tip-button, button {
+    width: 100%;
+    height: var(--button-height);
+}
+
+button {
+    color: var(--green900);
+    background-color: var(--green400);
+}
+
+button:disabled {
+    opacity: 0.2;
+}
+
+
 
 li:has(input[type="number"]) {
     position: relative;
 }
 
+/* Remove error message from `custom-tip` from grid flow */
 li:has(input[type="number"]) > span {
     position: absolute;
 
@@ -222,9 +258,66 @@ li:has(input[type="number"]) > span {
 }
 
 
+main > article {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    gap: var(--output-article-min-gap);
 
+    padding: var(--output-article-padding);
+    width: 100%;
 
+    border-radius: var(--output-article-border-radius);
 
+    background-color: var(--green900)
+}
 
+.output-sections {
+    display: flex;
+    flex-flow: column nowrap;
 
+    gap: var(--output-sections-gap);
+}
+
+.output-sec {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 2rem;
+}
+
+.output-sec h2 {
+    color: white;
+    font-size: var(--output-sec-h2-font-size);
+}
+
+.output-sec p {
+    color: var(--grey400);
+    font-size: var(--output-sec-p-font-size); 
+}
+
+.output-elements {
+    color: var(--green400);
+    font-size: var(--output-sec-price-font-size);
+}
+
+@media (min-width: 64em) {
+    :root {
+        --output-sections-gap: 2rem;
+    }
+
+    main {
+        flex-flow: row nowrap;
+        align-items: stretch;
+        position: relative;
+    }
+
+    .radio-btns-ul {
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+   
+}
 

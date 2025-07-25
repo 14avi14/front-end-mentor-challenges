@@ -41,11 +41,11 @@
       <section>
         <label class="input-header">Select Tip %</label>
         <ul class="radio-btns-ul">
-          <li><input type="radio" id="5p-tip" name="tips" value="5" checked><label for="5p-tip">5%</label></li>
-          <li><input type="radio" id="10p-tip" name="tips" value="10"><label for="10p-tip">10%</label></li>
-          <li><input type="radio" id="15p-tip" name="tips" value="15"><label for="15p-tip">15%</label></li>
-          <li><input type="radio" id="25p-tip" name="tips" value="25"><label for="25p-tip">25%</label></li>
-          <li><input type="radio" id="50p-tip" name="tips" value="50"><label for="50p-tip">50%</label></li>
+          <li><input type="radio" id="5p-tip" name="tips" value="5" checked><label for="5p-tip" class="tip-button">5%</label></li>
+          <li><input type="radio" id="10p-tip" name="tips" value="10"><label for="10p-tip" class="tip-button">10%</label></li>
+          <li><input type="radio" id="15p-tip" name="tips" value="15"><label for="15p-tip" class="tip-button">15%</label></li>
+          <li><input type="radio" id="25p-tip" name="tips" value="25"><label for="25p-tip" class="tip-button">25%</label></li>
+          <li><input type="radio" id="50p-tip" name="tips" value="50"><label for="50p-tip" class="tip-button">50%</label></li>
           <li>
             <input type="number" id="custom-tip-value" class="input-elements" name="" placeholder="Custom">
             <span id="tips-error" class="error-message"></span>
@@ -72,7 +72,7 @@
             <h2>Tip Amount</h2>
             <p>/ person</p>
           </div>
-          <strong id="tip-amount-output" class="output-elements">0.00</strong>
+          <strong id="tip-amount-output" class="output-elements">$0.00</strong>
         </section>
 
         <section class="output-sec">
@@ -80,11 +80,11 @@
             <h2>Total</h2>
             <p>/ person</p>
           </div>
-          <strong id="total-amount-out" class="output-elements">0.00</strong>
+          <strong id="total-amount-out" class="output-elements">$0.00</strong>
         </section>
       </section>
 
-      <button id="reset-btn" disabled="true">Reset</button>
+      <button id="reset-btn" disabled="true">RESET</button>
     </article>
   </main>
   
