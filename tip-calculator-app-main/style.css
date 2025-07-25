@@ -224,8 +224,14 @@ li input[type="radio"] {
     transition: all 0.3s;
 }
 
-input[type="radio"]:checked + .tip-button, .tip-button:hover {
+input[type="radio"]:checked + .tip-button{
     background-color: var(--green400);
+}
+
+.tip-button:hover, button:hover {
+    background-color: var(--green400);
+    filter: brightness(1.2);
+  
 }
 
 /* Set button size */
