@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Interactive rating component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+
+  <main>
+    <!-- Rating state start -->
+    
+    <article id="rating-state">
+
+      <img src="./images/icon-star.svg" alt="" /> <!-- Decorative only, so alt="" -->
+      
+      <h1>How did we do?</h1>
+
+      <p>Please let us know how we did with your support request. All feedback is appreciated 
+      to help us improve our offering!</p>
+      
+      <form id="form" novalidate>
+        <ul>
+          <li><input type="radio" id="radio-btn-1" name="rating-btns" value="1"><label for="radio-btn-1">1</label></li> 
+          <li><input type="radio" id="radio-btn-2" name="rating-btns" value="2"><label for="radio-btn-2">2</label></li>
+          <li><input type="radio" id="radio-btn-3" name="rating-btns" value="3"><label for="radio-btn-3">3</label></li> 
+          <li><input type="radio" id="radio-btn-4" name="rating-btns" value="4"><label for="radio-btn-4">4</label></li>
+          <li><input type="radio" id="radio-btn-5" name="rating-btns" value="5"><label for="radio-btn-5">5</label></li>
+        </ul>
+
+        <button type="submit">Submit</button>
+      </form>
+
+    </article>
+  
+    <!-- Rating state end -->
+
+    <!-- Thank you state start -->
+
+    <article id="thank-you-state" >
+
+      <img src="./images/illustration-thank-you.svg" alt="" />
+
+      <p>You selected <span id="user-rating"></span> out of 5</p>
+
+      <h1>Thank you!</h1>
+
+      <p>We appreciate you taking the time to give a rating. If you ever need more support, don’t hesitate to get in touch!</p>
+
+    </article>
+
+    <!-- Thank you state end -->
+  </main>
+  
+  <div class="attribution">
+    <i>Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://github.com/14avi14/front-end-mentor-challenges" target="_blank">14avi14 (Opens in a new tab)</a>.</i>
+  </div>
+</body>
+</html>
