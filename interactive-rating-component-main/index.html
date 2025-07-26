@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+
+  <script src="./script.js" defer></script>
   <title>Frontend Mentor | Interactive rating component</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
@@ -29,13 +30,16 @@
       to help us improve our offering!</p>
       
       <form id="form" novalidate>
-        <ul>
-          <li><input type="radio" id="radio-btn-1" name="rating-btns" value="1"><label for="radio-btn-1">1</label></li> 
-          <li><input type="radio" id="radio-btn-2" name="rating-btns" value="2"><label for="radio-btn-2">2</label></li>
-          <li><input type="radio" id="radio-btn-3" name="rating-btns" value="3"><label for="radio-btn-3">3</label></li> 
-          <li><input type="radio" id="radio-btn-4" name="rating-btns" value="4"><label for="radio-btn-4">4</label></li>
-          <li><input type="radio" id="radio-btn-5" name="rating-btns" value="5"><label for="radio-btn-5">5</label></li>
-        </ul>
+        <fieldset>
+          <ul>
+            <li><input type="radio" id="radio-btn-1" name="rating-btns" value="1"><label for="radio-btn-1">1</label></li> 
+            <li><input type="radio" id="radio-btn-2" name="rating-btns" value="2"><label for="radio-btn-2">2</label></li>
+            <li><input type="radio" id="radio-btn-3" name="rating-btns" value="3"><label for="radio-btn-3">3</label></li> 
+            <li><input type="radio" id="radio-btn-4" name="rating-btns" value="4"><label for="radio-btn-4">4</label></li>
+            <li><input type="radio" id="radio-btn-5" name="rating-btns" value="5"><label for="radio-btn-5">5</label></li>
+          </ul>
+          <span id="input-error" class="errors"></span>
+        </fieldset>
 
         <button type="submit">Submit</button>
       </form>
@@ -46,7 +50,7 @@
 
     <!-- Thank you state start -->
 
-    <article id="thank-you-state" >
+    <article id="thank-you-state" class="hidden">
 
       <img src="./images/illustration-thank-you.svg" alt="" />
 
