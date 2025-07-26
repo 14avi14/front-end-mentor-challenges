@@ -6,6 +6,7 @@ const accordionCheckBoxes = document.querySelectorAll(".accordion-btn");
 const accordionLabels = document.querySelectorAll(".accordion-btn-label");
 const accordionTexts = document.querySelectorAll(".accordion-text");
 
+
 const plusImageSrc = "./assets/images/icon-plus.svg";
 const minusImageSrc = "./assets/images/icon-minus.svg";
 
@@ -18,9 +19,17 @@ function handleCheckBoxChanges(checked, index) {
         accordionLabels[index].classList.remove("expanded-btn-label");
     }
     
-
-
 }
+
+function handleKeyBoardInputs(key, index) {
+    if (key === "Enter" || key === " ") {accordionCheckBoxes[index].click();}
+}
+
+accordionLabels.forEach((label, index) => {
+    label.addEventListener("keyup", (e) => {
+        handleKeyBoardInputs(e.key, index);
+    });
+});
 
 accordionCheckBoxes.forEach((button, index) => {
     button.addEventListener("change", function() {
