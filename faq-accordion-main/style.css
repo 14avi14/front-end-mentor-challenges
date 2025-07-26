@@ -1,0 +1,25 @@
+
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.accordion-btn-label::after {
+    content: url("./assets/images/icon-plus.svg");
+}
+
+.expanded-btn-label::after {
+    content: url("./assets/images/icon-minus.svg");
+}
+
+.accordion-text {
+    max-height: 0;
+    overflow: hidden;
+
+    transition: all 0.2s;
+}
+
+
+
