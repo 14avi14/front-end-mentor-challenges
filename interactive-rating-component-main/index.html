@@ -6,12 +6,13 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 
+  <link rel="stylesheet" href="./style.css">
   <script src="./script.js" defer></script>
   <title>Frontend Mentor | Interactive rating component</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
+    .attribution { font-size: 11px; text-align: center; color:white;}
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
 </head>
@@ -21,9 +22,10 @@
     <!-- Rating state start -->
     
     <article id="rating-state">
-
-      <img src="./images/icon-star.svg" alt="" /> <!-- Decorative only, so alt="" -->
-      
+      <figure>
+        <img src="./images/icon-star.svg" alt=""  class="star-logo"/> <!-- Decorative only, so alt="" -->
+      </figure>    
+    
       <h1>How did we do?</h1>
 
       <p>Please let us know how we did with your support request. All feedback is appreciated 
@@ -32,16 +34,16 @@
       <form id="form" novalidate>
         <fieldset>
           <ul>
-            <li><input type="radio" id="radio-btn-1" name="rating-btns" value="1"><label for="radio-btn-1">1</label></li> 
-            <li><input type="radio" id="radio-btn-2" name="rating-btns" value="2"><label for="radio-btn-2">2</label></li>
-            <li><input type="radio" id="radio-btn-3" name="rating-btns" value="3"><label for="radio-btn-3">3</label></li> 
-            <li><input type="radio" id="radio-btn-4" name="rating-btns" value="4"><label for="radio-btn-4">4</label></li>
-            <li><input type="radio" id="radio-btn-5" name="rating-btns" value="5"><label for="radio-btn-5">5</label></li>
+            <li><input type="radio" id="radio-btn-1" name="rating-btns" value="1"><label for="radio-btn-1" tabindex="0">1</label></li> 
+            <li><input type="radio" id="radio-btn-2" name="rating-btns" value="2"><label for="radio-btn-2" tabindex="0">2</label></li>
+            <li><input type="radio" id="radio-btn-3" name="rating-btns" value="3"><label for="radio-btn-3" tabindex="0">3</label></li> 
+            <li><input type="radio" id="radio-btn-4" name="rating-btns" value="4"><label for="radio-btn-4" tabindex="0">4</label></li>
+            <li><input type="radio" id="radio-btn-5" name="rating-btns" value="5"><label for="radio-btn-5" tabindex="0">5</label></li>
           </ul>
-          <span id="input-error" class="errors"></span>
+          <span id="input-error" class="errors" aria-live="polite"></span>
         </fieldset>
 
-        <button type="submit">Submit</button>
+        <button type="submit">SUBMIT</button>
       </form>
 
     </article>
@@ -52,9 +54,9 @@
 
     <article id="thank-you-state" class="hidden">
 
-      <img src="./images/illustration-thank-you.svg" alt="" />
+      <img src="./images/illustration-thank-you.svg" alt=""/>
 
-      <p>You selected <span id="user-rating"></span> out of 5</p>
+      <p class="you-select">You selected <span id="user-rating"></span> out of 5</p>
 
       <h1>Thank you!</h1>
 

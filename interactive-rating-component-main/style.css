@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/* CSS RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* GENERAL STYLES */
+
+:root {
+    --orange500: hsl(25, 97%, 53%);
+    --white: hsl(0, 100%, 100%);
+    --grey500: hsl(217, 12%, 63%);
+    --grey900: hsl(213, 19%, 18%);
+    --grey950: hsl(216, 12%, 8%);
+
+
+    --article-bg-grey: hsla(213, 20%, 18%, 0.7);
+
+
+    /* WIDTH/HEIGHT */
+    --center-article-width: min(90%, 21rem);
+
+    --star-icon-width: calc(3 * var(--star-icon-padding));
+
+    --button-width: calc(3 * var(--radio-btn-label-padding));
+
+
+    /* PADDING/MARGIN */
+
+    --center-article-padding: 1.5rem;
+
+    --center-article-gap: 1rem;
+
+    --star-icon-padding: 1rem;
+
+    --radio-btn-label-padding: 0.9rem;
+
+    --button-padding: 0.75rem;
+
+    --you-select-padding: 0.25rem;
+    --you-select-padding-inline: 1rem;
+
+    /* FONT */
+    --h1-font-size: 1.5rem;
+    --p-font-size: 0.9rem;
+
+    --button-font-size: 1rem;
+
+    --errors-font-size: 0.75rem;
+
+    /* OTHER */
+
+    --article-border-radius: 1rem;
+
+    --button-border-radius: 2rem;
+
+    --you-select-border-radius: 1rem;
+
+}
+
+body {
+    font: 1rem "Overpass", sans-serif;
+    font-weight: 400;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: var(--grey950);
+}
+
+ul {
+    list-style: none;
+}
+
+fieldset {
+    border: none;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+article {
+    display: grid;
+    gap: var(--center-article-gap);
+
+    width: var(--center-article-width);
+    background-color: var(--article-bg-grey);
+
+    border-radius: var(--article-border-radius);
+
+    padding: var(--center-article-padding);
+}
+
+.star-logo {
+
+    background-color: var(--grey900);
+
+    width: 3rem;
+    height: auto;
+
+    padding: var(--star-icon-padding);
+    overflow: visible;
+    border-radius: 50%;
+}
+
+h1 {
+    color: white;
+
+    font-size: var(--h1-font-size);
+}
+
+p, li label {
+    color: var(--grey500);
+    
+    font-size: var(--p-font-size);
+}
+
+form {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: var(--center-article-gap);
+}
+
+fieldset {
+    position: relative; /* For the error message which is positioned absolue(.errors class) */
+}
+
+fieldset ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+input[type="radio"] + label{
+    display: inline-block;
+    text-align: center;
+    padding: var(--radio-btn-label-padding);
+    width: var(--button-width);
+    height: var(--button-width);
+    background-color: var(--grey900);
+    border-radius: 50%;
+
+    transition: all 0.2s;
+}
+
+input[type="radio"]:checked + label {
+    background-color: white;
+    color: var(--grey900);
+}
+
+input[type="radio"] + label:hover {
+    background-color: var(--orange500);
+    color: var(--grey900);
+}
+
+button {
+    color: var(--grey900);
+    background-color: var(--orange500);
+    font-size: var(--button-font-size);
+    font-weight: 700;
+
+    padding: var(--button-padding);
+    border-radius: var(--button-border-radius);
+
+    transition: all 0.2s;
+}
+
+button:hover {
+    background-color: white;
+}
+
+.errors {
+    position: absolute;
+    top: -1rem;
+    left: 0;
+
+    font-size: var(--errors-font-size);
+
+    color: red;
+
+}
+
+
+/* THAN YOU PAGE */
+
+article:nth-child(2) {
+    /* display: flex; */
+    text-align: center;
+}
+
+article:nth-child(2) img {
+    margin: 0 auto;
+}
+
+.you-select {
+    /* Style "You selected" element */
+    margin: 0 auto;
+    color: var(--orange500);
+    background-color: var(--grey900);
+
+    padding: var(--you-select-padding);
+    padding-inline: var(--you-select-padding-inline);
+    border-radius: var(--you-select-border-radius);
+
+
+}
+ 
+.hidden {
+    display: none;
+}
+

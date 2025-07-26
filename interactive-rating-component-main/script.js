@@ -39,3 +39,7 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
     handleSubmit(e.target, errorEl);
 });
+
+form.addEventListener("change", (e) => {
+    errorEl.textContent = ""; // Remove error message when option selected
+});
