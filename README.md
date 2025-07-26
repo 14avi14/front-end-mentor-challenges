@@ -10,3 +10,4 @@
 | [Newsletter Sign-up Page](https://14avi14.github.io/front-end-mentor-challenges/newsletter-sign-up-with-success-message-main/) |
 | [Time Tracking Dashboard](https://14avi14.github.io/front-end-mentor-challenges/time-tracking-dashboard-main/) |
 | [Tip Calculator App](https://14avi14.github.io/front-end-mentor-challenges/tip-calculator-app-main/) |
+| [Interactive Rating Component](https://14avi14.github.io/front-end-mentor-challenges/interactive-rating-component-main/) |
