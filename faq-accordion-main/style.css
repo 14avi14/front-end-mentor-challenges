@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* CSS RESET */
 
 * { 
     margin: 0;
@@ -5,10 +8,134 @@
     box-sizing: border-box;
 }
 
+/* GENERAL STYLES */
 
+:root {
+    --white: hsl(0, 100%, 100%);
+    --purple100: hsl(275, 100%, 97%);
+    --purple600: hsl(292, 16%, 49%);
+    --purple950: hsl(292, 42%, 14%);
+
+    --hover-color: hsl(281, 83%, 54%);
+
+    --box-shadow: 0 0 1rem hsla(292, 42%, 14%, 0.2);
+
+    /* WIDTH/HEIGHT */
+    --main-width: min(90%, 25rem);
+
+    --header-img-width: min(1.75rem, 5vw);
+
+    /* PADDING/MARGIN */
+    --main-padding: 1rem;
+
+    --header-gap: 0.5rem;
+
+    --accordion-btn-label-padding-block: min(3vw, 1rem);
+    --accordion-text-margin-bottom: 1rem;
+
+    /* FONT */
+
+    --header-font-size: min(1.25rem, 5vw);
+
+    --accordion-btn-label-font-size: min(0.75rem, 4vw);
+
+    --accordion-text-font-size: min(0.7rem, 4vw);
+
+    /* OTHER */
+    --main-border-radius: 0.3rem;
+
+
+}
+
+body {
+    font: 1rem "Work Sans", sans-serif;
+    background-color: var(--purple100);
+
+    width: 100vw;
+    min-height: 100vh;
+
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+body::before {
+    content: "";
+    background-image: url("./assets/images/background-pattern-mobile.svg");
+    background-size: contain; 
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 100vw;
+    height: 100vh;
+
+    
+    z-index: -1;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+
+main {
+    width: var(--main-width);
+
+    background-color: white;
+    padding: var(--main-padding);
+    border-radius: var(--main-border-radius);
+
+    box-shadow: var(--box-shadow);
+}
+
+header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: var(--header-gap);
+
+    font-size: var(--header-font-size);
+    color: var(--purple950);
+}
+
+header img {
+    width: var(--header-img-width);
+    height: auto;
+}
+
+
+.accordion-btn-label {
+    font-size: var(--accordion-btn-label-font-size);
+    font-weight: 600;
+    color: var(--purple950);
+    border-top: 2px solid var(--purple100);
+
+    padding-block: var(--accordion-btn-label-padding-block);
+
+    display: grid;
+    justify-content: space-between;
+    align-items: center;
+    grid-template-columns: 3fr 1fr;
+
+}
+
+.accordion-btn-label:hover {
+    color: var(--hover-color);
+}
+
+
+label.accordion-btn-label:first-of-type {
+    border-top: none;
+}
 .accordion-btn-label::after {
     content: url("./assets/images/icon-plus.svg");
+    justify-self: end;
 }
+
 
 .expanded-btn-label::after {
     content: url("./assets/images/icon-minus.svg");
@@ -17,9 +144,21 @@
 .accordion-text {
     max-height: 0;
     overflow: hidden;
-
     transition: all 0.2s;
+
+
+    color: var(--purple600);
+    font-size: var(--accordion-text-font-size);
+}
+
+.expanded-btn-label + .accordion-text {
+    margin-bottom: var(--accordion-text-margin-bottom);
 }
 
 
+@media (min-width: 48em) {
+    body::before {
+        background-image: url("./assets/images/background-pattern-desktop.svg");
+    }
+}
 
