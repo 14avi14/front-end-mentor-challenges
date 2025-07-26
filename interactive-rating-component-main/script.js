@@ -16,7 +16,7 @@ function updateDisplay(data) {
     ratingStateEl.classList.add("hidden");
     thankyouStateEl.classList.remove("hidden");
 
-    userRatingEl.textContent = data["rating-btns"];
+    userRatingEl.textContent = ` You selected ${data["rating-btns"]} out of 5`;
 }
 
 function handleSubmit(form, errorEl) {

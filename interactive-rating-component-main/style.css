@@ -210,6 +210,9 @@ article:nth-child(2) img {
 .you-select {
     /* Style "You selected" element */
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    
     color: var(--orange500);
     background-color: var(--grey900);
 
