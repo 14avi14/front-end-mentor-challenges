@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <script src="script.js" defer></script>
+  <title>Frontend Mentor | Contact form</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+
+  <main>
+
+
+    <h1>Contact Us</h1> <!-- Not exactly sure if this h1 element should've been inside the form or not -->
+
+    <form id="form" novalidate>
+
+      <fieldset>
+        <legend>First Name</legend>
+        <input type="text" id="first-name" name="first-name" autocomplete="name" aria-describedby="first-name-error" required>
+        <span id="first-name-error" class="errors">This field is required<span>
+      </fieldset>
+
+      <fieldset>
+        <legend>Last Name</legend>
+        <input type="text" id="last-name" name="last-name" autocomplete="name" aria-describedby="last-name-error" required>
+        <span id="last-name-error" class="errors">This field is required<span>
+      </fieldset>
+
+      <fieldset>
+        <legend>Email</legend>
+        <input type="text" id="email" name="email" autocomplete="email" aria-describedby="email-error" required>
+        <span id="email-error" class="errors">This field is required<span>
+      </fieldset>
+
+      <fieldset>
+        <legend>Query Type</legend>
+        <input type="radio" name="query-type" aria-describedby="query-error" id="general-enquiry" required>
+        <label for="general-enquiry">General Enquiry</label>
+        <input type="radio" name="query-type" aria-describedby="query-error" id="support-request" required>
+        <label for="support-request">Support Request</label>
+        <span id="query-error" class="errors">Please select a query type<span>
+      </fieldset>
+      
+      <fieldset>
+        <legend>Message</legend>
+        <textarea id="message" name="message" rows="5" aria-describedby="message-error" required></textarea>
+        <span id="message-error" class="errors">This field is required</span>
+      </fieldset>
+
+      
+      <section>
+        <input type="checkbox" id="consent" name="consent" aria-describedby="consent-error" required>
+        <label for="consent">I consent to being contacted by the team</label>
+        <span id="consent" class="errors">To submit this form, please consent to being contacted</span>
+      </section>
+      
+      <button type="submit">Submit</button>
+    </form>
+
+  </main>
+
+    <article id="success-toast-message" class="toast-messages" hidden> 
+      <h2>Message Sent!</h2>
+      <p>Thanks for completing the form. We'll be in touch soon!</p>
+    </article>
+  
+  <div class="attribution">
+    <p>Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.</p>
+    <p>Coded by <a href="https://github.com/14avi14/front-end-mentor-challenges">14avi14</a>.</p>
+  </div>
+</body>
+</html>
