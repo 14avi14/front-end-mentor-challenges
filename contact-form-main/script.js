@@ -45,31 +45,14 @@ function validateForm(data, validations) {
     return errors;
 }
 
+
 function goToTop() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
-function handleSubmit(e, validations, errorElements) {
-    e.preventDefault();    
-
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData);
-
-    const errors = validateForm(data, validations);
-
-    
-    if (!Object.keys(errors).length) {
-        e.target.reset();
-        toastMessage.classList.add("toast-message-slidedown-animation");
-        toastMessage.classList.remove("hidden");
-        goToTop();
-
-    }
-
-    // Handle Error <span> elements
+function updateErrors(errorElements, errors) {
     errorElements.forEach((element, index) => {
-        
         if (index in errors) {
             
             errorElements[index].classList.remove("hidden");
@@ -80,9 +63,38 @@ function handleSubmit(e, validations, errorElements) {
             errorElements[index].textContent = "";
         }
     });
-    
+}
+
+function handleChange(data, validations, errorElements) {
+    const errors = validateForm(data, validations);
+    // Handle Error messages
+    updateErrors(errorElements, errors);
+    return errors;
+}
+
+function getData(form) {
+    return Object.fromEntries(new FormData(form));
+}
+
+function handleSubmit(e, validations, errorElements) {
+    e.preventDefault();    
+
+    const data = getData(e.target);
+
+    const errors = handleChange(data, validations, errorElements);
+
+    if (!Object.keys(errors).length) {
+        e.target.reset();
+        toastMessage.classList.add("toast-message-slidedown-animation");
+        toastMessage.classList.remove("hidden");
+        goToTop();
+    }
 }
 
 form.addEventListener("submit", (e) => {
     handleSubmit(e, validations, errorElements)
+});
+
+form.addEventListener("change", (e) => {
+    updateErrors(errorElements, {});
 });

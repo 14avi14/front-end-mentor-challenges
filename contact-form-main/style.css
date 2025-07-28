@@ -262,21 +262,24 @@ button:hover {
 }
 
 .toast-message-slidedown-animation {
-    animation: slideDown 8s ease-in-out forwards;
+    animation: slideDown 4s ease-in-out forwards;
 }
 
 @keyframes slideDown {
     0% {
-        top: -1000px;
+        top: -50px;
     }
     20% {
         top: 25px;
     }
-    50% {
+    90% {
         top: 25px;
     }
+    95% {
+        top: 50px;
+    }
     100% {
-        top: -1000px;
+        top: -100px;
     }
 }
 
