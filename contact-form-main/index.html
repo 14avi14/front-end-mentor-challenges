@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="./style.css">
   <script src="script.js" defer></script>
   <title>Frontend Mentor | Contact form</title>
 
@@ -22,45 +23,54 @@
     <h1>Contact Us</h1> <!-- Not exactly sure if this h1 element should've been inside the form or not -->
 
     <form id="form" novalidate>
+      <section class="horizontal-input-sec">
+        <fieldset class="input-section">
+          <legend>First Name</legend>
+          <input type="text" id="first-name" name="first-name" autocomplete="name" aria-describedby="first-name-error" required>
+          <span id="first-name-error" class="errors hidden">This field is required<span>
+        </fieldset>
 
-      <fieldset>
-        <legend>First Name</legend>
-        <input type="text" id="first-name" name="first-name" autocomplete="name" aria-describedby="first-name-error" required>
-        <span id="first-name-error" class="errors">This field is required<span>
-      </fieldset>
+        <fieldset class="input-section">
+          <legend>Last Name</legend>
+          <input type="text" id="last-name" name="last-name" autocomplete="name" aria-describedby="last-name-error" required>
+          <span id="last-name-error" class="errors hidden">This field is required<span>
+        </fieldset>
+      </section>
 
-      <fieldset>
-        <legend>Last Name</legend>
-        <input type="text" id="last-name" name="last-name" autocomplete="name" aria-describedby="last-name-error" required>
-        <span id="last-name-error" class="errors">This field is required<span>
-      </fieldset>
-
-      <fieldset>
+      <fieldset class="input-section">
         <legend>Email</legend>
         <input type="text" id="email" name="email" autocomplete="email" aria-describedby="email-error" required>
-        <span id="email-error" class="errors">This field is required<span>
+        <span id="email-error" class="errors hidden">This field is required<span>
       </fieldset>
 
-      <fieldset>
+      <fieldset class="input-section">
         <legend>Query Type</legend>
-        <input type="radio" name="query-type" aria-describedby="query-error" id="general-enquiry" required>
-        <label for="general-enquiry">General Enquiry</label>
-        <input type="radio" name="query-type" aria-describedby="query-error" id="support-request" required>
-        <label for="support-request">Support Request</label>
-        <span id="query-error" class="errors">Please select a query type<span>
+        <section class="horizontal-input-sec">
+          <label for="general-enquiry" class="radio-btn-label">
+            <input type="radio" name="query-type" aria-describedby="query-error" id="general-enquiry" required>
+            General Enquiry
+          </label>
+          <label for="support-request" class="radio-btn-label">
+            <input type="radio" name="query-type" aria-describedby="query-error" id="support-request" required>
+            Support Request
+          </label>
+        </section>
+        <span id="query-error" class="errors hidden">Please select a query type</span>
       </fieldset>
       
-      <fieldset>
+      <fieldset class="input-section">
         <legend>Message</legend>
-        <textarea id="message" name="message" rows="5" aria-describedby="message-error" required></textarea>
-        <span id="message-error" class="errors">This field is required</span>
+        <textarea id="message" name="message" rows="10" aria-describedby="message-error" required></textarea>
+        <span id="message-error" class="errors hidden">This field is required</span>
       </fieldset>
 
       
-      <section>
-        <input type="checkbox" id="consent" name="consent" aria-describedby="consent-error" required>
-        <label for="consent">I consent to being contacted by the team</label>
-        <span id="consent" class="errors">To submit this form, please consent to being contacted</span>
+      <section class="input-section">
+        <label for="consent">
+          <input type="checkbox" id="consent" name="consent" aria-describedby="consent-error" required>
+          I consent to being contacted by the team
+        </label>
+        <span id="consent" class="errors hidden">To submit this form, please consent to being contacted</span>
       </section>
       
       <button type="submit">Submit</button>
@@ -68,10 +78,10 @@
 
   </main>
 
-    <article id="success-toast-message" class="toast-messages" hidden> 
-      <h2>Message Sent!</h2>
-      <p>Thanks for completing the form. We'll be in touch soon!</p>
-    </article>
+  <article id="success-toast-message" class="toast-message hidden"> 
+    <h2>Message Sent!</h2>
+    <p>Thanks for completing the form. We'll be in touch soon!</p>
+  </article>
   
   <div class="attribution">
     <p>Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.</p>

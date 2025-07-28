@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+
+/* CSS RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* GENERAL STYLES */
+
+:root {
+    --green200: hsl(148, 38%, 91%);
+    --green600: hsl(169, 82%, 27%);
+    --red: hsl(0, 66%, 54%);
+    --white: hsl(0, 0%, 100%);
+    --grey500: hsl(186, 15%, 59%);
+    --grey900: hsl(187, 24%, 22%);
+
+    --transparent-green600: hsla(169, 82%, 27%, 0.2); 
+
+
+    /* WIDTH/HEIGHT */
+
+    --main-width: min(90%, 43.125rem);
+
+    --form-width: 90%;
+
+    --radio-button-width: 1.25rem;
+
+    --toast-message-width: min(90%, 28rem);
+
+    --input-section-height: 2rem;
+
+    /* MARGIN/PADDING */
+
+    --main-margin-block: 1.5rem;
+    --main-padding-block: 1rem;
+
+    --form-margin-top: 1rem;
+
+    --fieldset-gaps: 1rem;
+
+    --horizontal-input-gap: 0.3rem;
+
+    --input-paddings: 0.75rem;
+
+    --input-margin-top: 0.2rem;
+
+    --radio-button-space: 0.2rem;
+
+    --checkbox-gap: 0.5rem;
+
+    --toast-message-padding: 1rem;
+    --toast-message-text-gap: 0.5rem;
+    --toast-message-check-gap: 0.5rem;
+
+    /* FONT */
+    --label-font-size: 1rem;
+
+    /* OTHER */
+
+    --border-radius-main: 1rem;
+
+    --input-border-radius: 0.5rem;
+
+    --toast-message-border-radius: 1rem;
+}
+
+body {
+    font: 1rem "Karla", sans-serif;
+    font-weight: 400;
+    color: var(--grey900);
+    background-color: var(--green200);
+
+    width: 100vw;
+    min-height: 100vh;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    width: var(--main-width);
+    margin-top: var(--main-margin-block);
+
+    padding-block: var(--main-padding-block);
+    
+    border-radius: var(--border-radius-main);
+    background-color: white;
+    
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+main form {
+    width: var(--form-width);
+    margin-top: var(--form-margin-top);
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+}
+.input-section, button, .horizontal-input-sec {
+    border: none;
+    width: 100%;
+    margin-top: var(--fieldset-gaps);
+}
+
+.horizontal-input-sec{
+    margin-top: 0;
+}
+
+:where(fieldset) input[type="text"], textarea {
+    width: 100%;
+}
+
+input[type="text"], .radio-btn-label, textarea {
+    resize: none;
+    margin-top: var(--input-margin-top);
+    padding: var(--input-paddings);
+    border: 1px solid var(--grey500);
+    border-radius: var(--input-border-radius);
+}
+
+:is(input[type="text"], textarea):is(:focus, :hover){
+    border: 1px solid var(--green600);
+    outline: none;
+}
+
+.radio-btn-label {
+    display: flex;
+    align-items: center;
+    gap: var(--radio-button-space);
+
+}
+
+input[type="radio"] {
+    appearance: none;   
+    width: var(--radio-button-width);
+    height: var(--radio-button-width);
+    border: 1px solid var(--grey500);
+    border-radius: 50%;
+
+    position: relative;
+}
+
+input[type="radio"]:checked {
+    border: none;
+}
+
+input[type="radio"]:checked::before { /* Add checked image*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: " ";
+    width: var(--radio-button-width);
+    height: var(--radio-button-width);
+    background-image: url("./assets/images/icon-radio-selected.svg");
+    background-position: center;
+    background-size: contain;
+
+}
+.radio-btn-label:has(input[type="radio"]:checked) {
+    background-color: var(--transparent-green600);
+    border: 2px solid var(--green600);
+}
+
+.radio-btn-label{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+label[for="consent"] {
+    display: flex;
+    align-items: center;
+    gap: var(--checkbox-gap);
+}
+
+input[type="checkbox"] {
+    position: relative;
+    width: var(--radio-button-width);
+    height: var(--radio-button-width);
+}
+
+input[type="checkbox"]:checked::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: " ";
+    width: 100%;
+    height: 100%;
+    background-image: url("./assets/images/icon-checkbox-check.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+
+.errors, label, legend {
+    font-size: var(--label-font-size);
+}
+
+
+:has(~ .errors:not(.hidden)), .horizontal-input-sec:has(+.errors:not(.hidden)) .radio-btn-label { /* Check if the input element has a visible error*/
+    border-color: var(--red);
+}
+
+.errors {
+    color: var(--red);
+    display: block;
+}
+
+button {
+    width: var(--fieldset-width);
+
+    padding: var(--input-paddings);
+
+    border-radius: var(--input-border-radius);
+    border: none;
+    background-color: var(--green600);
+    color: white;
+    font-weight: 700;
+}
+
+button:hover {
+    background-color: var(--grey900);
+}
+
+.toast-message {
+    position: absolute;
+
+    width: var(--toast-message-width);
+    background-color: var(--grey900);
+    color: white;
+
+    display: grid;
+    gap: var(--toast-message-text-gap);
+
+    padding: var(--toast-message-padding);
+    border-radius: var(--toast-message-border-radius);
+
+}
+
+.toast-message h2 {
+    display: flex;
+    align-items: center;
+    gap: var(--toast-message-check-gap);
+}
+
+.toast-message h2::before {
+    content: " ";
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url("./assets/images/icon-success-check.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.toast-message-slidedown-animation {
+    animation: slideDown 8s ease-in-out forwards;
+}
+
+@keyframes slideDown {
+    0% {
+        top: -1000px;
+    }
+    20% {
+        top: 25px;
+    }
+    50% {
+        top: 25px;
+    }
+    100% {
+        top: -1000px;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+@media (min-width: 48em) {
+    .horizontal-input-sec {
+        display: flex;
+        gap: var(--horizontal-input-gap);
+    }
+
+    button {
+        width: 100%;
+    }
+
+}
+
