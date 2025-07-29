@@ -355,7 +355,6 @@ article.new-article-items:last-of-type {
             "big  big  new" 2fr 
             "foot foot foot" 0.5fr / 1fr 1fr 1fr;
 
-        /* aspect-ratio: 1.4; */
     }
 
 
@@ -389,8 +388,8 @@ article.new-article-items:last-of-type {
         display: flex;
     }
 
-    .footer-articles section {
-        gap: 0;
+    .footer-articles {
+        grid-template-columns: 1.5fr 3fr;
     }
 
 
