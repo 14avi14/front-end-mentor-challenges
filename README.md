@@ -13,3 +13,4 @@
 | [Interactive Rating Component](https://14avi14.github.io/front-end-mentor-challenges/interactive-rating-component-main/) |
 |[FAQ Accordion](https://14avi14.github.io/front-end-mentor-challenges/faq-accordion-main/) |
 |[Contact Form](https://14avi14.github.io/front-end-mentor-challenges/contact-form-main/) | 
+|[News Homepage](https://14avi14.github.io/front-end-mentor-challenges/news-homepage-main/) |
