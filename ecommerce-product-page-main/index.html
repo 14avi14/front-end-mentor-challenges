@@ -5,22 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <script src="./script.js" defer></script>
   <title>Frontend Mentor | E-commerce product page</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
+
+    /* NEED TO REMOVE */
+    .hidden {display: none;}
   </style>
 </head>
 <body>
-
+  <div class="overlay hidden">I am the Overlay</div>
   <header>
-    <div class="header-menu">
+    <div class="header-menu-container">
       <button class="menu-btn"><img src="./images/icon-menu.svg" alt="Menu Open Button"></button>
       <img src="./images/logo.svg" alt="Logo">
-      <nav class="header-nav">
+      <nav class="header-menu-nav hidden">
         <ul>
           <li><a href="#" class="header-nav-options">Collections</a></li>
           <li><a href="#" class="header-nav-options">Men</a></li>
@@ -32,15 +35,33 @@
     </div>
 
     <div class="header-profile-cart">
-      <button class="cart-btn"><img src="./images/icon-cart.svg" alt="Check Cart"></button>
+      <div>
+        <button class="show-cart-btn">
+          <img src="./images/icon-cart.svg" alt="Check Cart">
+          <span class="num-items-display-cart">0</span>
+        </button>
+        <!-- Ensure that dialog can be centered on button -->
+        <dialog class="cart-dialog">
+          <h3>Cart</h3>
+          <hr>
+          <section class="cart-items-container">
+            <p>Your cart is empty.</p>
+          </section>
+          <button class="cart-btns">Checkout</button>
+        </dialog>
+      </div>
+
       <img src="./images/image-avatar.png" alt="Profile picture" class="profile-picture">
     </div>
   </header>
   <main>
     
     <section class="image-display-section">
-      <img src="./images/image-product-1.jpg" alt="Product Image">
-   
+      <div class="main-image">
+        <button id="show-lightbox-btn">
+          <img src="./images/image-product-1.jpg" alt="Product Image">
+        </button>
+      </div>
       <ul class="image-thumbnail-nav">
         <li><button class="thumbnail-btn"><img src="./images/image-product-1-thumbnail.jpg" alt="Product view option"></button></li>
         <li><button class="thumbnail-btn"><img src="./images/image-product-2-thumbnail.jpg" alt="Product view option"></button></li>
@@ -48,6 +69,19 @@
         <li><button class="thumbnail-btn"><img src="./images/image-product-4-thumbnail.jpg" alt="Product view option"></button></li>
       </ul>
     </section>
+
+    <dialog class="lightbox-dialog">
+      <button id="close-lightbox-btn"><img src="./images/icon-close.svg" alt="Close lightbox"></button>
+      <div class="main-image">
+        <img src="./images/image-product-1.jpg" alt="Product Image">
+      </div>
+      <ul class="image-thumbnail-nav">
+        <li><button class="thumbnail-btn"><img src="./images/image-product-1-thumbnail.jpg" alt="Product view option"></button></li>
+        <li><button class="thumbnail-btn"><img src="./images/image-product-2-thumbnail.jpg" alt="Product view option"></button></li>
+        <li><button class="thumbnail-btn"><img src="./images/image-product-3-thumbnail.jpg" alt="Product view option"></button></li>
+        <li><button class="thumbnail-btn"><img src="./images/image-product-4-thumbnail.jpg" alt="Product view option"></button></li>
+      </ul>
+    </dialog>
 
     <section class="product-descr-container">
       <div class="product-title-container">
@@ -62,7 +96,7 @@
 
       <div class="product-pricing">
         <div class="current-price">
-          <h3>$125.00</h3>
+          <strong>$125.00</strong>
           <p class="percent-off">50%</p>
         </div>
         <p class="previous-price">$250.00</p>
@@ -72,11 +106,11 @@
 
     <div class="add-to-cart-container">
       <div class="item-count-container">
-        <button><img src="./images/icon-minus.svg" alt="Decrease item count"></button>
-        <p class="num-items-display">0</p>
-        <button><img src="./images/icon-plus.svg" alt="Increase item count"></button>
+        <button class="change-item-count-btns" id="remove-items"><img src="./images/icon-minus.svg" alt="Decrease item count"></button>
+        <p class="num-items-display-main">0</p>
+        <button class="change-item-count-btns" id="add-items"><img src="./images/icon-plus.svg" alt="Increase item count"></button>
       </div>
-      <button class="add-to-cart-button"><img src="./images/icon-cart.svg">Add to cart</button>
+      <button class="cart-btns" id="add-to-cart-btn"><img src="./images/icon-cart.svg">Add to cart</button>
     </div>
   </main>
   
