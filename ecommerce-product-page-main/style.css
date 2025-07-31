@@ -573,6 +573,10 @@ button.change-image-arrow-btns:last-of-type {
 
     }
 
+    span.num-items-display-cart {
+        font-size: 0.8rem;
+    }
+
     main {
         display: flex;
         justify-content: center;
