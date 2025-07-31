@@ -549,6 +549,7 @@ button.change-image-arrow-btns:last-of-type {
     .header-menu-nav ul {
         display: flex;
         flex-flow: row nowrap;
+        gap: 2rem;
     }
 
     .header-nav-options {
