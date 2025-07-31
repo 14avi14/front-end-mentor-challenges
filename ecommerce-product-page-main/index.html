@@ -5,65 +5,62 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
   <script src="./script.js" defer></script>
   <title>Frontend Mentor | E-commerce product page</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-
-    /* NEED TO REMOVE */
-    .hidden {display: none;}
-  </style>
 </head>
 <body>
-  <div class="overlay hidden">I am the Overlay</div>
+  <div class="overlay hidden"></div>
   <header>
-    <div class="header-menu-container">
+    <section class="header-menu-container">
       <button class="menu-btn"><img src="./images/icon-menu.svg" alt="Menu Open Button"></button>
       <img src="./images/logo.svg" alt="Logo">
       <nav class="header-menu-nav hidden">
         <ul>
-          <li><a href="#" class="header-nav-options">Collections</a></li>
-          <li><a href="#" class="header-nav-options">Men</a></li>
-          <li><a href="#" class="header-nav-options">Women</a></li>
-          <li><a href="#" class="header-nav-options">About</a></li>
-          <li><a href="#" class="header-nav-options">Contact</a></li>
+          <li><a href="#" class="header-nav-options text-preset-1">Collections</a></li>
+          <li><a href="#" class="header-nav-options text-preset-1">Men</a></li>
+          <li><a href="#" class="header-nav-options text-preset-1">Women</a></li>
+          <li><a href="#" class="header-nav-options text-preset-1">About</a></li>
+          <li><a href="#" class="header-nav-options text-preset-1">Contact</a></li>
         </ul>
       </nav>
-    </div>
+    </section>
 
-    <div class="header-profile-cart">
+    <section class="header-profile-cart">
       <div>
         <button class="show-cart-btn">
           <img src="./images/icon-cart.svg" alt="Check Cart">
-          <span class="num-items-display-cart">0</span>
+          <span class="num-items-display-cart hidden">0</span>
         </button>
         <!-- Ensure that dialog can be centered on button -->
         <dialog class="cart-dialog">
-          <h3>Cart</h3>
+          <header>
+            <h3 class="text-preset-1">Cart</h3>
+          </header>
           <hr>
-          <section class="cart-items-container">
-            <p>Your cart is empty.</p>
-          </section>
-          <button class="cart-btns">Checkout</button>
+          <article>
+            <section class="cart-items-container">
+              <p class="text-preset-3">Your cart is empty.</p>
+            </section>
+            <button class="cart-btns text-preset-1 hidden" id="checkout-btn">Checkout</button>
+          </article>
         </dialog>
       </div>
 
       <img src="./images/image-avatar.png" alt="Profile picture" class="profile-picture">
-    </div>
+    </section>
   </header>
+
   <main>
-    
     <section class="image-display-section">
-      <div class="main-image">
-        <button id="show-lightbox-btn">
-          <img src="./images/image-product-1.jpg" alt="Product Image">
+      <div class="main-image-container">
+        <button id="show-lightbox-btn" class="show-lightbox-btn">
+          <img src="./images/image-product-1.jpg" alt="Product Image" class="main-image">
         </button>
       </div>
       <ul class="image-thumbnail-nav">
-        <li><button class="thumbnail-btn"><img src="./images/image-product-1-thumbnail.jpg" alt="Product view option"></button></li>
+        <li><button class="thumbnail-btn selected"><img src="./images/image-product-1-thumbnail.jpg" alt="Product view option"></button></li>
         <li><button class="thumbnail-btn"><img src="./images/image-product-2-thumbnail.jpg" alt="Product view option"></button></li>
         <li><button class="thumbnail-btn"><img src="./images/image-product-3-thumbnail.jpg" alt="Product view option"></button></li>
         <li><button class="thumbnail-btn"><img src="./images/image-product-4-thumbnail.jpg" alt="Product view option"></button></li>
@@ -71,52 +68,51 @@
     </section>
 
     <dialog class="lightbox-dialog">
-      <button id="close-lightbox-btn"><img src="./images/icon-close.svg" alt="Close lightbox"></button>
-      <div class="main-image">
-        <img src="./images/image-product-1.jpg" alt="Product Image">
+      
+      <div class="main-image-container">
+        <button id="close-lightbox-btn" class="close-lightbox-btn"><img src="./images/icon-close.svg" alt="Close lightbox"></button>
+        <img src="./images/image-product-1.jpg" alt="Product Image" class="main-image">
       </div>
       <ul class="image-thumbnail-nav">
-        <li><button class="thumbnail-btn"><img src="./images/image-product-1-thumbnail.jpg" alt="Product view option"></button></li>
+        <li><button class="thumbnail-btn selected"><img src="./images/image-product-1-thumbnail.jpg" alt="Product view option"></button></li>
         <li><button class="thumbnail-btn"><img src="./images/image-product-2-thumbnail.jpg" alt="Product view option"></button></li>
         <li><button class="thumbnail-btn"><img src="./images/image-product-3-thumbnail.jpg" alt="Product view option"></button></li>
         <li><button class="thumbnail-btn"><img src="./images/image-product-4-thumbnail.jpg" alt="Product view option"></button></li>
       </ul>
     </dialog>
 
-    <section class="product-descr-container">
-      <div class="product-title-container">
-        <h2>Sneaker Company</h2>
-        <h1>Fall Limited Edition Sneakers</h1>
-      </div>
-
-      <p class="product-description">
-        These low-profile sneakers are your perfect casual wear companion. Featuring a 
-        durable rubber outer sole, they’ll withstand everything the weather can offer.
-      </p>
-
-      <div class="product-pricing">
-        <div class="current-price">
-          <strong>$125.00</strong>
-          <p class="percent-off">50%</p>
+    <article class="product-price-and-descr">
+      <section class="product-descr-container">
+        <div class="product-title-container">
+          <h2 class="company-name text-preset-3">SNEAKER COMPANY</h2>
+          <h1 class="">Fall Limited Edition Sneakers</h1>
         </div>
-        <p class="previous-price">$250.00</p>
-      </div>
 
-    </section>
+        <p class="product-description text-preset-2">
+          These low-profile sneakers are your perfect casual wear companion. Featuring a 
+          durable rubber outer sole, they’ll withstand everything the weather can offer.
+        </p>
 
-    <div class="add-to-cart-container">
-      <div class="item-count-container">
-        <button class="change-item-count-btns" id="remove-items"><img src="./images/icon-minus.svg" alt="Decrease item count"></button>
-        <p class="num-items-display-main">0</p>
-        <button class="change-item-count-btns" id="add-items"><img src="./images/icon-plus.svg" alt="Increase item count"></button>
-      </div>
-      <button class="cart-btns" id="add-to-cart-btn"><img src="./images/icon-cart.svg">Add to cart</button>
-    </div>
+        <div class="product-pricing">
+          <div class="current-price">
+            <strong class="text-preset-4">$125.00</strong>
+            <p class="percent-off">50%</p>
+          </div>
+          <s class="previous-price text-preset-3">$250.00</s> <!-- Strike through element = <s></s>-->
+        </div>
+
+      </section>
+
+      <section class="add-to-cart-container">
+        <div class="item-count-container">
+          <button class="change-item-count-btns" id="remove-items"><img src="./images/icon-minus.svg" alt="Decrease item count"></button>
+          <p class="num-items-display-main text-preset-1">0</p>
+          <button class="change-item-count-btns" id="add-items"><img src="./images/icon-plus.svg" alt="Increase item count"></button>
+        </div>
+        <button class="cart-btns text-preset-1" id="add-to-cart-btn"><img src="./images/icon-cart.svg">Add to cart</button>
+      </section>
+    </article>
   </main>
-  
-  <div class="attribution">
-    <p>Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.</p> 
-    <p>Coded by <a href="https://github.com/14avi14/front-end-mentor-challenges">14avi14</a>.</p>
-  </div>
+
 </body>
 </html>

@@ -14,9 +14,13 @@ menuBtn.addEventListener("click", (e) => {
         // Make the menu visible
         menuEl.classList.remove("hidden");
         shaderOverlay.classList.remove("hidden");
+        menuBtn.querySelector("img").src = "./images/icon-close.svg";
+        menuBtn.style.position = "fixed";
     } else {
         menuEl.classList.add("hidden");
         shaderOverlay.classList.add("hidden");  
+        menuBtn.querySelector("img").src = "./images/icon-menu.svg";
+        menuBtn.style.position = "relative";
     }
 
 });
@@ -27,6 +31,8 @@ const cartBtn = document.querySelector(".show-cart-btn");
 const cartPopUp = document.querySelector(".cart-dialog");
 const cartPopUpContainer = document.querySelector(".cart-items-container");
 const itemDisplayElCart = document.querySelector(".num-items-display-cart");
+const checkoutBtn = document.getElementById("checkout-btn");
+
 cartBtn.addEventListener("click", (e) => {
     if (cartPopUp.open) {
         cartPopUp.close();
@@ -41,8 +47,8 @@ function addItemToCartPopUp(popup, numPurchased, individualCost, imgFileName, it
     itemEl.innerHTML = `
         <img src="./images/${imgFileName}" alt="">
         <section class="cart-item-info">
-            <p>${itemName}</p>
-            <p>$${individualCost.toFixed(2)} x ${numPurchased} <strong>$${totalCost.toFixed(2)}</strong></p>    
+            <p class="text-preset-2">${itemName}</p>
+            <p class="text-preset-2">$${individualCost.toFixed(2)} x ${numPurchased} <strong>$${totalCost.toFixed(2)}</strong></p>    
         </section>
     `;
 
@@ -65,9 +71,12 @@ function updateCartPopupContainer() {
     itemDisplayElCart.textContent = cartPopUpContainer.childElementCount - 1; // Exclude cart empty message
     
     if (parseInt(itemDisplayElCart.textContent) === 0) {
-        console.log(itemDisplayElCart.textContent);
-        cartPopUpContainer.querySelector("p").classList.remove("hidden");
+        itemDisplayElCart.classList.add("hidden");
+        checkoutBtn.classList.add("hidden");
+        cartPopUpContainer.querySelector("p").classList.remove("hidden"); /* Show `cart is empty` message*/
     } else {
+        itemDisplayElCart.classList.remove("hidden");
+        checkoutBtn.classList.remove("hidden");
         cartPopUpContainer.querySelector("p").classList.add("hidden");
     }
 }
@@ -137,14 +146,17 @@ function createArrowBtns(imgFileName, direction, imageUpdateFunction) {
 }
 
 function updateImage(container) {
-    const image = container.querySelector("img");
+    const image = container.querySelector(".main-image");
     image.src = productImagePaths[index];
+    image.classList.add("main-image");
 }
 
 function updateImagesMainAndLightBox() { 
     // Update both the lightbox and main images so we don't need a separate index variable
     updateImage(mainImageSection);
     updateImage(mainImageLightBox);
+
+    updateThumbnailNavs(index);
 }
 
 
@@ -158,17 +170,17 @@ const productImagePaths = [
 
 
 const imageDisplaySection = document.querySelector(".image-display-section");
-const mainImageSection = imageDisplaySection.querySelector(".main-image");
+const mainImageSection = imageDisplaySection.querySelector(".main-image-container");
 const showLightBoxBtn = mainImageSection.querySelector("#show-lightbox-btn");
 
 const lightBoxModal = document.querySelector(".lightbox-dialog");
-const mainImageLightBox = lightBoxModal.querySelector(".main-image");
+const mainImageLightBox = lightBoxModal.querySelector(".main-image-container");
 const closeLightBoxBtn = lightBoxModal.querySelector("#close-lightbox-btn");
 
 const leftButton = createArrowBtns("icon-previous.svg", -1, updateImagesMainAndLightBox);
 const rightButton = createArrowBtns("icon-next.svg", 1, updateImagesMainAndLightBox);
 
-if (window.innerWidth < 1024) {
+if (window.innerWidth < 768) {
     // NOTE: This does not update live, so if the screen 
     //       size changes(like with dev tools) then the buttons will still stay
 
@@ -194,7 +206,24 @@ const thumbnailBtnsMain = imageDisplaySection.querySelectorAll(".thumbnail-btn")
 const thumbnailBtnsLightBox = lightBoxModal.querySelectorAll(".thumbnail-btn");
 
 
+function updateSelectedThumbnail(index, btnList) {
+    btnList.forEach((btn, i) => {
+        if (index == i) {
+            btnList[i].classList.add("selected");
+        } else {
+            btnList[i].classList.remove("selected");
+        }
+    });
+}
+
+function updateThumbnailNavs(i) {
+    updateSelectedThumbnail(i, thumbnailBtnsMain);
+    updateSelectedThumbnail(i, thumbnailBtnsLightBox);
+}
+
 function handleThumbnailClick(indexBtn) {
+    updateThumbnailNavs(indexBtn);
+
     index = indexBtn;
     updateImagesMainAndLightBox();
 } 
