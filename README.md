@@ -16,3 +16,4 @@
 | [News Homepage](https://14avi14.github.io/front-end-mentor-challenges/news-homepage-main/) |
 | [Ecommerce Product Page](https://14avi14.github.io/front-end-mentor-challenges/ecommerce-product-page-main/) |
 | [NFT Preview Card Component](https://14avi14.github.io/front-end-mentor-challenges/nft-preview-card-component-main/) |
+| [Loopstudios Landing Page](https://14avi14.github.io/front-end-mentor-challenges/loopstudios-landing-page-main/) |
