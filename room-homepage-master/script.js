@@ -12,12 +12,11 @@ openNavBtn.addEventListener("click", (e) => {
 });
 
 // First, get all slide elements
-//      Images, and text sections
+//      Images, and text slides
 //      Arrow Btns
 // Index variable
 // Event listener to change index
-// When index changes, add slideIn animation class to new indexed image, add slideOut animation class to old 
-
+// When change index(with arrow btn) shift the slides left or right
 const imagesSlideshow = document.querySelector(".imagesSlide");
 const textSlideshow = document.querySelector(".textSlide");
 const leftArrowBtn = document.getElementById("leftArrowBtn");
