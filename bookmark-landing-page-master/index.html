@@ -5,20 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js" defer></script>
   <title>Frontend Mentor | Bookmark landing page</title>
+
 </head>
 <body>
 
   <header class="mainHeader">
     <img src="./images/logo-bookmark.svg" alt="" class="logo">
     <nav class="mainHeader__nav">
-      <button class="mainHeader__toggleNavBtn"></button>
+      <button class="mainHeader__toggleNavBtn" id="toggleMainNavBtn"></button>
       <ul class="mainHeader__list">
-        <li><a href="#" class="mainHeader__item">Features</a></li>
-        <li><a href="#" class="mainHeader__item">Pricing</a></li>
-        <li><a href="#" class="mainHeader__item">Contact</a></li>
-        <li><button class="btn btn--red btn--medium">Login</button></li>
+        <li class="mainHeader__item"><a href="#" class="mainHeader__link">Features</a></li>
+        <li class="mainHeader__item"><a href="#" class="mainHeader__link">Pricing</a></li>
+        <li class="mainHeader__item"><a href="#" class="mainHeader__link">Contact</a></li>
+        <li class="mainHeader__btnContainer"><button class="btn mainHeader__btn">LOGIN</button></li>
       </ul>
     </nav>
   </header>
@@ -26,56 +28,77 @@
   <main>
 
     <section class="introSection">
-      <h2 class="header header--largeSize">A Simple Bookmark Manager</h2>
+      <section class="introSection__imageContainer">
+        <img src="./images/illustration-hero.svg" alt="" class="introSection__img">
+      </section>
+      <article class="introSection__text">
+        <h2 class="header header--large">A Simple Bookmark Manager</h2>
 
-      <p class="paragraph">A clean and simple interface to organize your favourite websites. Open a new 
-      browser tab and see your sites load instantly. Try it for free.</p>
+        <p class="paragraph">A clean and simple interface to organize your favourite websites. Open a new 
+        browser tab and see your sites load instantly. Try it for free.</p>
 
-      <div class="introSection__btnContainer">
-        <button class="btn btn--blue">Get it on Chrome</button>
-        <button class="btn btn--grey">Get it on Firefox</button>
-      </div>
+        <div class="introSection__btnContainer">
+          <button class="btn btn--blue introSection__btn">Get it on Chrome</button>
+          <button class="btn btn--grey btn--boxshadow introSection__btn">Get it on Firefox</button>
+        </div>
+      </article>
     </section>
 
     <section class="featuresSection">
       <header class="featuresSection__headerContainer">
         <h2 class="header header--center">Features</h2>
-        <p class="paragraph paragraph--center">Our aim is to make it quick and easy for you to access your favourite websites. 
+        <p class="paragraph paragraph--center featureSection__mainParagraph">Our aim is to make it quick and easy for you to access your favourite websites. 
         Your bookmarks sync between your devices so you can access them on the go.</p>
         <nav class="featuresSection__nav">
-          <input type="radio" name="featureSelection" class="featureSelection__selection">Simple Bookmarking</input>
-          <input type="radio" name="featureSelection" class="featureSelection__selection">Speedy Searching</input>
-          <input type="radio" name="featureSelection" class="featureSelection__selection">Easy Sharing</input>
+          <input type="radio" name="featureSelection" class="featureSelection__selector" id="simpleBookmarking" checked><label for="simpleBookmarking">Simple Bookmarking</label>
+          <input type="radio" name="featureSelection" class="featureSelection__selector" id="speedySearching"><label for="speedySearching">Speedy Searching</label>
+          <input type="radio" name="featureSelection" class="featureSelection__selector" id="easySharing"><label for="easySharing">Easy Sharing</label>
         </nav>
       </header>
       
       <section class="featureDisplay">
-        <article class="feature">
-          <h3 class="header">Bookmark in one click</h3>
+        <article class="featureSlide featureSlide--open">
+          <div class="featureSlide__imageContainer">
+            <img src="./images/illustration-features-tab-1.svg" alt="" class="featureSlide__img"> 
+          </div>
+          <article class="featureSlide__text">
+            <h3 class="header">Bookmark in one click</h3>
 
-          <p class="paragraph">Organize your bookmarks however you like. Our simple drag-and-drop interface 
-          gives you complete control over how you manage your favourite sites.</p>
+            <p class="paragraph featureSlide__paragraph">Organize your bookmarks however you like. Our simple drag-and-drop interface 
+            gives you complete control over how you manage your favourite sites.</p>
 
-          <button class="btn btn--blue btn--small">More Info</button>
+            <button class="btn btn--blue moreInfoBtn">More Info</button>
+          </article>
         </article>
 
-        <article>
-          <h3 class="header">Intelligent search</h3>
+        <article class="featureSlide">
+          <div class="featureSlide__imageContainer">
+            <img src="./images/illustration-features-tab-2.svg" alt="" class="featureSlide__img">
+          </div>
+          <article class="featureSlide__text">
+            <h3 class="header">Intelligent search</h3>
 
-          <p class="paragraph">Our powerful search feature will help you find saved sites in no time at all. 
-          No need to trawl through all of your bookmarks.</p>
+            <p class="paragraph featureSlide__paragraph">Our powerful search feature will help you find saved sites in no time at all. 
+            No need to trawl through all of your bookmarks.</p>
 
-          <button class="btn btn--blue btn--small">More Info</button>
+            <button class="btn btn--blue moreInfoBtn">More Info</button>
+          </article>
         </article>
 
-        <article>
-          <h3 class="header">Share your bookmarks</h3>
+        <article class="featureSlide">
+          <div class="featureSlide__imageContainer">
+            <img src="./images/illustration-features-tab-3.svg" alt="" class="featureSlide__img">
+          </div>
+          <article class="featureSlide__text">
+            <h3 class="header">Share your bookmarks</h3>
 
-          <p class="paragraph">Easily share your bookmarks and collections with others. Create a shareable 
-          link that you can send at the click of a button.</p>
+            <p class="paragraph featureSlide__paragraph">Easily share your bookmarks and collections with others. Create a shareable 
+            link that you can send at the click of a button.</p>
 
-          <button class="btn btn--blue btn--small">More Info</button>
+            <button class="btn btn--blue moreInfoBtn">More Info</button>
+          </article>
         </article>
+
       </section>
     </section>
 
@@ -89,24 +112,33 @@
 
       <section class="download__cardsContainer">
         <article class="download__card">
-          <img src="./images/logo-chrome.svg" alt="" class="card__browserLogo">
-          <h3 class="header header--center header--smallSize">Add to Chrome</h3>
-          <p class="paragraph paragraph--center">Minimum version 62</p>
-          <button class="btn btn--blue">Add & Install Extension</button>
+          <section class="card__mainSection">
+            <img src="./images/logo-chrome.svg" alt="" class="card__browserLogo">
+            <h3 class="header header--center header--smallSize">Add to Chrome</h3>
+            <p class="paragraph paragraph--center">Minimum version 62</p>
+          </section>
+          <img src="./images/bg-dots.svg" alt="" class="card__bgdots">
+          <button class="btn btn--blue card__btn">Add & Install Extension</button>
         </article>
 
         <article class="download__card">
-          <img src="./images/logo-firefox.svg" alt="" class="card__browserLogo">
-          <h3 class="header header--center header--smallSize">Add to Firefox</h3>
-          <p class="paragraph paragraph--center">Minimum version 55</p>
-          <button class="btn btn--blue">Add & Install Extension</button>
+          <section class="card__mainSection">
+            <img src="./images/logo-firefox.svg" alt="" class="card__browserLogo">
+            <h3 class="header header--center header--smallSize">Add to Firefox</h3>
+            <p class="paragraph paragraph--center">Minimum version 55</p>
+          </section>
+          <img src="./images/bg-dots.svg" alt="" class="card__bgdots">
+          <button class="btn btn--blue card__btn">Add & Install Extension</button>
         </article>
 
-        <article class="download__card">
-          <img src="./images/logo-opera.svg" alt="" class="card__browserLogo">
-          <h3 class="header header--center header--smallSize">Add to Opera</h3>
-          <p class="paragraph paragraph--center">Minimum version 46</p>
-          <button class="btn btn--blue">Add & Install Extension</button>
+        <article class="download__card ">
+          <section class="card__mainSection">
+            <img src="./images/logo-opera.svg" alt="" class="card__browserLogo">
+            <h3 class="header header--center header--smallSize">Add to Opera</h3>
+            <p class="paragraph paragraph--center">Minimum version 46</p>
+          </section>
+          <img src="./images/bg-dots.svg" alt="" class="card__bgdots">
+          <button class="btn btn--blue card__btn">Add & Install Extension</button>
         </article>
 
       </section>
@@ -123,66 +155,71 @@
 
       <article class="accordion">
         <!-- Question 1 -->
-        <button class="accordion__item accordion__item--closed">What is Bookmark?</button>
+        <button class="accordion__QuestionBtn">What is Bookmark?</button>
 
         <!-- Answer 1 -->
-        <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt 
+        <p class="paragraph accordion__answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt 
         justo eget ultricies fringilla. Phasellus blandit ipsum quis quam ornare mattis.</p>
 
         <!-- Question 2 -->
-        <button class="accordion__item accordion__item--closed">How can I request a new browser?</button>
+        <button class="accordion__QuestionBtn">How can I request a new browser?</button>
 
         <!-- Answer 2 -->
-        <p class="paragraph">Vivamus luctus eros aliquet convallis ultricies. Mauris augue massa, ultricies non ligula. 
+        <p class="paragraph accordion__answer">Vivamus luctus eros aliquet convallis ultricies. Mauris augue massa, ultricies non ligula. 
         Suspendisse imperdiet. Vivamus luctus eros aliquet convallis ultricies. Mauris augue massa, 
         ultricies non ligula. Suspendisse imperdie tVivamus luctus eros aliquet convallis ultricies. 
         Mauris augue massa, ultricies non ligula. Suspendisse imperdiet.</p>
 
         <!-- Question 3 -->
-        <button class="accordion__item accordion__item--closed">Is there a mobile app?</button>
+        <button class="accordion__QuestionBtn">Is there a mobile app?</button>
 
         <!-- Answer 3 -->
-        <p class="paragraph">Sed consectetur quam id neque fermentum accumsan. Praesent luctus vestibulum dolor, ut condimentum 
+        <p class="paragraph accordion__answer">Sed consectetur quam id neque fermentum accumsan. Praesent luctus vestibulum dolor, ut condimentum 
         urna vulputate eget. Cras in ligula quis est pharetra mattis sit amet pharetra purus. Sed 
         sollicitudin ex et ultricies bibendum.</p>
 
         <!-- Question 4 -->
-        <button class="accordion__item accordion__item--closed">What about other Chromium browsers?</button>
+        <button class="accordion__QuestionBtn">What about other Chromium browsers?</button>
 
         <!-- Answer 4 -->
-        <p class="paragraph">Integer condimentum ipsum id imperdiet finibus. Vivamus in placerat mi, at euismod dui. Aliquam 
+        <p class="paragraph accordion__answer">Integer condimentum ipsum id imperdiet finibus. Vivamus in placerat mi, at euismod dui. Aliquam 
         vitae neque eget nisl gravida pellentesque non ut velit.</p>
 
       </article>
 
-      <button class="btn btn--blue btn--small">More Info</button>
+      <button class="btn btn--blue moreInfoBtn">More Info</button>
     </section>
-
-    <section class="contactSection">
-      <p class="contactSection__numJoined">35,000+ already joined</p>
-
-      <h2 class="contactSection__header">Stay up-to-date with what we’re doing</h2>
-
-      <form class="contactForm" novalidate>
-        <input type="email" placeholder="Enter your email address" class="contactForm__email">
-        <button type="submit" class="btn btn--red btn--medium" id="contactFormSubmit">Contact Us</button>
-      </form>
-    </section>
-
   </main>
 
   <footer>
-    <section class="footer__infoLinks">
-      <img src="./images/logo-bookmark.svg" alt="" class="logo">
-      <a href="#" class="infoLinks__link">Features</a>
-      <a href="#" class="infoLinks__link">Pricing</a>
-      <a href="#" class="infoLinks__link">Features</a>
+    <section class="contactSection">
+      <p class="contactSection__numJoined">35,000+ already joined</p>
+
+      <h2 class="header contactSection__header">Stay up-to-date with what we’re doing</h2>
+
+      <form class="contactForm" novalidate>
+        <section class="contactForm__emailContainer">
+          <div class="emailContainer__container">
+            <input type="email" name="email" placeholder="Enter your email address" class="contactForm__email">
+          </div>
+          <i class="contactForm__error" id="emailError"></i>
+        </section>
+        <button type="submit" class="btn btn--red contactForm__btn" id="contactFormSubmit">Contact Us</button>
+      </form>
     </section>
 
-    <section class="footer__socials">
-      <a href="#" class="socials__link"><img src="./images/icon-facebook.svg"></a>
-      <a href="#" class="socials__link"><img src="./images/icon-twitter.svg"></a>
-    </section>
+    <article class="footer__bottomSection">
+      <section class="footer__infoLinks">
+        <a href="#" class="infoLinks__link">Features</a>
+        <a href="#" class="infoLinks__link">Pricing</a>
+        <a href="#" class="infoLinks__link">Contact</a>
+      </section>
+
+      <section class="footer__socials">
+        <a href="#" class="socials__link"><img src="./images/icon-facebook.svg"></a>
+        <a href="#" class="socials__link"><img src="./images/icon-twitter.svg"></a>
+      </section>
+    </article>
   </footer>  
 </body>
 </html>
